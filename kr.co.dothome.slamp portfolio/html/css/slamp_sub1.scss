@@ -1,0 +1,152 @@
+$h1:#{'min(3.6em,36px)'};
+$h2:#{'min(3.6em,36px)'};
+$h4:#{'min(1.8em,18px)'};
+$p:#{'min(1.8em,18px)'};
+
+$lh80:#{'min(2rem,80px)'};
+$lh40:#{'min(1rem,40px)'};
+$lh20:#{'min(0.5rem,20px)'};
+
+
+// 폰트지정
+@mixin ff($fontname,$url){
+    @font-face {
+        font-family: '#{$fontname}';
+        src: url('../css/fonts/#{$url}');
+    }
+}
+// 사용 할 폰트
+@include ff(mr,'Merriweather-LightItalic.ttf');
+@include ff(lola,'Lora-Regular.ttf');
+@include ff(loa,'Lora-Italic.ttf');
+
+// 그리드
+@mixin gd($dev){
+    @if($dev=='pc'){
+        width: 80%;
+        max-width: 1080px;
+    }
+    @else{
+        width: 90%;
+        max-width: 700px;
+    }
+    margin: 0 auto;
+}
+
+// 백그라운드 기본설정
+@mixin bg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+// 플렉스
+@mixin fx{
+    display: flex;
+    justify-content: space-between;
+}
+
+html{
+    font-size: 3vw;  
+    body{
+        position: relative;
+        background-color: #000;
+        color: #fff;
+        font-size: 0.7vw;
+        overflow-x: hidden;
+    }
+}
+// 헤더
+.hdrWrap{
+    width: 100%;
+    position: relative;
+    transition: all 0.5s;
+    &.fix{
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: #000;
+        background-color: #fff;
+        z-index: 900;
+        h4{
+            &:hover{
+                color: orange;
+            }
+        }
+    }
+    header{
+        @include gd('pc');
+        @include fx;
+        h1{
+            cursor: pointer;
+            font-size: $h1;
+            text-transform: uppercase;
+            font-weight: normal;
+            line-height: $lh80;
+        }
+        nav{
+            text-transform: uppercase;
+            width: calc(100% / 12 * 6);
+            @include fx;
+            font-size: $h4;
+            line-height: $lh80;
+            h4{
+                cursor: pointer;
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+        .menu{
+            @include fx;
+            width: calc(100% / 12 * 1.5);
+            font-size: #{'min(3em,30px)'};
+            i{
+                cursor: pointer;
+                line-height: $lh80;
+            }
+        }
+    }
+}
+.mainWrap{
+    margin-top: #{'max(-3rem,-120px)'};
+    padding: #{'min(7rem,280px)'} 0px #{'min(10rem,400px)'};
+    @include bg;
+    background-image: url('../images/sub1/sub1_main.png');
+    height: #{'min(23rem,920px)'};
+    main{
+        color: #fff;
+        @include gd('pc');
+        h2{
+            margin-left: min;
+            font-size: #{'min(4.8em,48px)'};
+            line-height: $lh80;
+            text-transform: capitalize;
+            text-align: left;
+            margin-left:  #{'min(1.75rem,70px)'};
+            font-family: 'mr';
+        }
+        p{
+            margin-left:  #{'min(1.75rem,70px)'};
+            margin-top: #{'min(1rem,40px)'};
+            width: calc(100% / 12 * 6);
+            font-size: #{'min(1.8em,18px)'};
+            line-height: $lh20;
+            height: $lh40;
+            overflow: hidden;
+            font-family: 'lola';
+        }
+        .btn{
+            margin-top: $lh80;
+            margin-left:  #{'min(1.75rem,70px)'};
+            line-height: $lh40;
+            font-size: #{'min(1.6em,16px)'};
+            text-transform: uppercase;
+            background-color: #837c7a;
+            width: calc(100% / 12 * 2);
+            text-align: center;
+            opacity: 70%;
+        }
+    }
+}
