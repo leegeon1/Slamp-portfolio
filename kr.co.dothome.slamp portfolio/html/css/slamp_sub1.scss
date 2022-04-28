@@ -150,3 +150,140 @@ html{
         }
     }
 }
+// 배너공통
+.bnrWrap{
+    margin-top: #{'min(5rem,200px)'};
+    .banner{
+        @include gd('pc');
+    }
+}
+// 컨텐츠 공통
+.cntWrap{
+    margin-top: #{'min(5rem,200px)'};
+    .content{
+        @include gd('pc');
+    }
+}
+
+.bnrWrap{
+    .banner.bnr01{
+        display: flex;
+        justify-content: space-around;
+        .icon{
+            width: calc(100% / 4);
+            cursor: pointer;
+            text-align: center;
+            h4{
+                font-size: $h4;
+                line-height: $lh40;
+            }
+            .image{
+                @include bg;
+                background-size: contain;
+                height: $lh80;
+                @for $img from 1 through 4{
+                    &.i#{$img}{
+                        background-image: url('../images/sub1/banner1-#{$img}.png');
+                    }
+                }
+            }
+        }
+    }
+}
+// 배너2
+.banner.bnr02{
+    width: 100%;
+    max-width: none;
+    overflow: hidden;
+    .bnrTeam{
+        width: 400%;
+        @include fx;
+        .bnrGroup{
+            @include fx;
+            width: calc(100% / 4);
+            direction: rtl;
+            .image{
+                width: calc(100% / 12 * 7);
+                height: #{'min(17rem,680px)'};
+                @include bg;
+                @for $img from 1 through 4{
+                    &.i#{$img}{
+                        background-image: url('../images/sub1/banner2-#{$img}.png');
+                    }
+                }
+            }
+            .texts{
+                width: calc(100% / 12 * 5);
+                p{
+                    width: calc(100% / 5 * 3);
+                    text-align: left;
+                    margin-top: #{'min(5rem,200px)'};
+                    font-size: #{'min(7.2em,72px)'};
+                    line-height: $lh80;
+                    text-transform: uppercase;
+                    &:nth-child(2){
+                        margin-top: $lh80;
+                    }
+                }
+            }
+        }
+    }
+}
+.cntWrap{
+    .content.cnt01{
+        overflow: hidden;
+        header{
+            text-align: center;
+            font-size: $h2;
+            line-height: $lh80;
+        }
+        section{
+            @include fx;
+            margin-top: #{'min(1.5rem,60px)'};
+            width: 178%;
+            .article{
+                width: calc(100% / 5);
+                .image{
+                    height: #{'min(13rem,520px)'};
+                    &:nth-child(2){
+                        height: #{'min(12rem,480px)'};
+                    }
+                    @for $img from 1 through 5{
+                        &.i#{$img}{
+                            background-image: url('../images/sub1/content1-#{$img}.png');
+                        }
+                    } 
+                }
+            }
+        }
+    }
+}
+
+// 반응형 태블릿 and 모바일 그리드
+@media (max-width:1024px) and (min-width:0px){
+    .hdrWrap{
+        header{
+            @include gd('');
+        }
+    }
+    .mainWrap{
+        main{
+            @include gd('');
+        }
+    }
+    .cntWrap{
+        .content{
+            @include gd('');
+        }
+    }
+    .brnWrap{
+        .banner{
+            @include gd('');
+        }
+    }
+    .ftrWrap{
+        footer{
+            @include gd('');
+        }
+    }
+}
