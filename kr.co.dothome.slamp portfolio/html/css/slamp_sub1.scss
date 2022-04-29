@@ -214,9 +214,9 @@ html{
             }
             .texts{
                 width: calc(100% / 12 * 5);
-                p{
-                    width: calc(100% / 5 * 3);
-                    text-align: left;
+                h2{
+                    text-align: right;
+                    margin-right: #{'min(1.75rem,70px)'};
                     margin-top: #{'min(5rem,200px)'};
                     font-size: #{'min(7.2em,72px)'};
                     line-height: $lh80;
@@ -231,29 +231,146 @@ html{
 }
 .cntWrap{
     .content.cnt01{
-        overflow: hidden;
         header{
             text-align: center;
             font-size: $h2;
             line-height: $lh80;
         }
         section{
-            @include fx;
-            margin-top: #{'min(1.5rem,60px)'};
-            width: 178%;
-            .article{
-                width: calc(100% / 5);
-                .image{
-                    height: #{'min(13rem,520px)'};
-                    &:nth-child(2){
-                        height: #{'min(12rem,480px)'};
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            .txtbtn{
+                text-align: center;
+                width: calc(100% / 12 * 1.5);
+                position: absolute;
+                bottom: $lh20;
+                right: 0;
+                font-size: #{'min(1.6em,16px)'};
+                line-height: $lh40;
+                text-transform: uppercase;
+                background-color: #333;
+            }
+            .btn{
+                position: absolute;
+                top: #{'min(7rem,280px)'};
+                right: #{'min(1.5rem,60px)'};;
+                font-size: #{'min(6em,60px)'};
+                line-height: $lh80;
+            }
+            .artGroup{
+                @include fx;
+                margin-top: #{'min(1.5rem,60px)'};
+                width: 167%;
+                position: relative;
+                .article{
+                    width: calc(100% / 5); 
+                    &:nth-child(1){
+                        opacity: 0;
                     }
-                    @for $img from 1 through 5{
-                        &.i#{$img}{
-                            background-image: url('../images/sub1/content1-#{$img}.png');
+                    &:nth-child(2){
+                        z-index: 3;
+                        position: relative;
+                        left: #{'min(2rem,80px)'};
+                    }
+                    &:nth-child(3){
+                        z-index: 2;
+                        position: relative;
+                        right: #{'min(2rem,80px)'};
+                    }
+                    &:nth-child(4){
+                        right: #{'min(6rem,240px)'};
+                        position: relative;
+                        z-index: 1;
+                    }
+                    &:nth-child(5){
+                        opacity: 0;
+                    }
+                    &:nth-child(2)~.article .texts{
+                        display: none;
+                    }
+                    &:nth-child(3) .image{
+                        height: #{'min(12rem,480px)'};
+                        margin-top: #{'min(0.5rem,20px)'};
+                    }
+                    &:nth-child(4) .image{
+                        height: #{'min(12rem,440px)'};
+                        margin-top: #{'min(1rem,40px)'};
+                    }
+                    .image{
+                        @include bg;
+                        height: #{'min(13rem,520px)'};
+                        @for $img from 1 through 5{
+                            &.i#{$img}{
+                                background-image: url('../images/sub1/content1-#{$img}.png');
+                            }
+                        } 
+                    }
+                    .texts{
+                        text-align: center;
+                        margin-top: $lh40;
+                        color: #fff;
+                        h3{
+                            font-size: #{'min(2.4em,24px)'};
+                            line-height: $lh40;
                         }
-                    } 
+                        h4{
+                            font-size: #{'min(1.8em,18px)'};
+                            line-height: $lh40;
+                        }
+                    }
                 }
+            }
+        }
+    }
+}
+// 푸터
+.ftrWrap{
+    margin-top: #{'min(5rem,200px)'};
+    padding: $lh80 0px $lh80;
+    background-color: #1d1d1d;
+    footer{
+        @include fx;
+        @include gd('pc');
+        .ftrLeft{
+            width: calc(100% / 12 * 7);
+            .logo{
+                @include bg;
+                background-size: contain;
+                width: calc(100% / 7 * 1.8);
+                height: #{'min(2rem,80px)'};
+                background-image: url('../images/main/Slamp_footer_logo.png');
+            }
+            .info{
+                width: 102%;
+                margin-top: $lh40;
+                p{
+                    font-size: #{'min(1.4em,14px)'};
+                    line-height: $lh20;
+                    height: $lh40;
+                }
+                ul{
+                    width: calc(100% / 7 * 2.5);
+                    @include fx;
+                    li{
+                        &::after{
+                            opacity: 50%;
+                            display: block;
+                            content: '';
+                            border: 1px solid #fff;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .ftrRight{
+            width: calc(100% / 12 * 2);
+            font-size: #{'min(2.4em,24px)'};
+            i{
+                background-color: #fff;
+                border-radius: 2px;
+                color: #000;
             }
         }
     }
