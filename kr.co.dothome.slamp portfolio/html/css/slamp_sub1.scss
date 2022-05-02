@@ -162,6 +162,11 @@ html{
     margin-top: #{'min(5rem,200px)'};
     .content{
         @include gd('pc');
+        header{
+            text-align: center;
+            font-size: $h2;
+            line-height: $lh80;
+        }
     }
 }
 
@@ -231,11 +236,6 @@ html{
 }
 .cntWrap{
     .content.cnt01{
-        header{
-            text-align: center;
-            font-size: $h2;
-            line-height: $lh80;
-        }
         section{
             width: 100%;
             position: relative;
@@ -322,6 +322,44 @@ html{
                 }
             }
         }
+    }
+}
+.bnrWrap{
+    &:nth-child(6){
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        height: #{'min(18rem,720px)'};
+        &::after{
+            content: '';
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 70%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: contain;
+            background-image: url('../images/sub1/banner3.png');
+            height: #{'min(18rem,720px)'};
+        }
+    }
+    .banner.bnr03{
+        padding-top: #{'min(8rem,320px)'};
+        h2{
+            font-size: #{'min(6em,60px)'};
+            line-height: $lh80;
+            text-transform: capitalize;
+            text-align: center;
+        }
+    }
+}
+.content.cnt02{
+    section{
+        
     }
 }
 // 푸터
