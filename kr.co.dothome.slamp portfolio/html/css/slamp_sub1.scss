@@ -358,8 +358,56 @@ html{
     }
 }
 .content.cnt02{
+    width: 100%;
+    max-width: none;
     section{
-        
+        @include fx;
+        margin-top: #{'min(3rem,120px)'};
+        article{
+            position: relative;
+            width: calc(100% / 4 - #{'min(0.5rem,20px)'});
+            transition: all 0.5s;
+            &:hover{
+                margin-top: #{'min(1rem,-40px)'};
+                & .image::after{
+                    display: none;
+                }
+            }
+            .image{
+                position: relative;
+                height: #{'min(15rem,600px)'};
+                z-index: 1;
+                @include bg;
+                &::after{
+                    height: #{'min(15rem,600px)'};
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    opacity: 80%;
+                    background-color: #333;
+                }
+                @for $img from 1 through 4{
+                    &.i#{$img}{
+                        background-image: url('../images/sub1/content2-#{$img}.png');
+                    }
+                }
+            }
+            .texts{
+                transition: all 0.4s;
+                position: absolute;
+                top: #{'min(5rem,200px)'};
+                left: 0;right: 0;
+                margin: auto;
+                z-index: 2;
+                text-align: center;
+                font-size: #{'min(3em,30px)'};
+                line-height: $lh40;
+            }
+        }
     }
 }
 // 푸터
