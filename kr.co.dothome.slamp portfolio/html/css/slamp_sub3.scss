@@ -1,0 +1,329 @@
+$h1:#{'min(3.6em,36px)'};
+$h2:#{'min(3.6em,36px)'};
+$h3:#{'min(2.4em,24px)'};
+$h4:#{'min(1.8em,18px)'};
+$p:#{'min(1.8em,18px)'};
+
+$lh80:#{'min(2rem,80px)'};
+$lh40:#{'min(1rem,40px)'};
+$lh20:#{'min(0.5rem,20px)'};
+
+
+// 폰트지정
+@mixin ff($fontname,$url){
+    @font-face {
+        font-family: '#{$fontname}';
+        src: url('../css/fonts/#{$url}');
+    }
+}
+// 사용 할 폰트
+@include ff(mr,'Merriweather-LightItalic.ttf');
+@include ff(lola,'Lora-Regular.ttf');
+@include ff(loa,'Lora-Italic.ttf');
+
+// 그리드
+@mixin gd($dev){
+    @if($dev=='pc'){
+        width: 80%;
+        max-width: 1080px;
+    }
+    @else{
+        width: 90%;
+        max-width: 700px;
+    }
+    margin: 0 auto;
+}
+
+// 백그라운드 기본설정
+@mixin bg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+// 플렉스
+@mixin fx{
+    display: flex;
+    justify-content: space-between;
+}
+
+html{
+    font-size: 3vw;  
+    body{
+        position: relative;
+        background-color: #000;
+        color: #fff;
+        font-size: 0.7vw;
+        overflow-x: hidden;
+    }
+}
+// 헤더
+.hdrWrap{
+    width: 100%;
+    position: relative;
+    transition: all 0.5s;
+    &.fix{
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: #000;
+        background-color: #fff;
+        z-index: 900;
+        h4{
+            &:hover{
+                color: orange;
+            }
+        }
+    }
+    header{
+        @include gd('pc');
+        @include fx;
+        h1{
+            cursor: pointer;
+            font-size: $h1;
+            text-transform: uppercase;
+            font-weight: normal;
+            line-height: $lh80;
+            position: relative;
+            a:link{
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        nav{
+            text-transform: uppercase;
+            width: calc(100% / 12 * 6);
+            @include fx;
+            font-size: $h4;
+            line-height: $lh80;
+            h4{
+                cursor: pointer;
+                position: relative;
+                a:link{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                &:hover{
+                    color: orange;
+                }
+            }
+        }
+        .menu{
+            @include fx;
+            width: calc(100% / 12 * 1.5);
+            font-size: #{'min(3em,30px)'};
+            i{
+                cursor: pointer;
+                line-height: $lh80;
+            }
+        }
+    }
+}
+.mainWrap{
+    main{
+        @include gd('pc');
+        text-align: left;
+        h2{
+            margin-top:  #{'min(3rem,120px)'};
+            font-size: #{'min(4.8em,48px)'};
+            line-height: $lh80;
+            font-family: 'mr';
+        }
+        h3{
+            margin-top: $lh40;
+            font-size: #{'min(2.8em,28px)'};
+            line-height: $lh40;
+            font-family: 'loa';
+        }
+        p{
+            margin-top: $lh40;
+            font-size: #{'min(1.4em,14px)'};
+            line-height: $lh20;
+            height: $lh40;
+            width: calc(100% / 12 * 8);
+            font-family: 'lola';
+        }
+    }
+}
+.cntWrap{
+    margin-top:  #{'min(3rem,120px)'};
+    .content{
+        @include gd('pc');
+        section{
+            article{
+                &:nth-child(1){
+                    .image.i1{
+                        width: calc(100% / 12 * 6);
+                        @include bg;              
+                        height: #{'min(14rem,640px)'};
+                        background-image: url('../images/sub3/cnt1-1.png');
+                        margin: 0 auto;
+                    }
+                    .texts{
+                        width: calc(100% / 12 * 10);
+                        margin: 0 auto;
+                        p{
+                            margin-top:  #{'min(1rem,40px)'};
+                            font-size:  #{'min(1.4em,14px)'};
+                            line-height: $lh20;
+                            height:#{'min(1.5rem,60px)'};
+                            width: 100%;
+                            text-align: center;
+                            overflow: hidden;
+                        }
+                    }
+                }
+                &:nth-child(2){
+                    position: relative;
+                    margin-top: #{'min(3.5rem,140px)'};
+                    height: #{'min(13rem,520px)'};
+                    .image.i2{
+                        width: calc(100% / 12 * 7);
+                        @include bg;              
+                        height: #{'min(9rem,360px)'};
+                        background-image: url('../images/sub3/cnt1-2.png');
+                        margin-left: #{'min(1.75rem,70px)'};
+                    }
+                    .texts{
+                        padding-top: $lh80;
+                        padding-left: $lh20;
+                        position: absolute;
+                        top: #{'min(6rem,240px)'};
+                        right: #{'min(1.75rem,70px)'};
+                        width: calc(100% / 12 * 5);
+                        height: #{'min(7rem,280px)'};
+                        background-color: #fff;
+                        color: #000;
+                        box-shadow: 0px 0px 0px,-6px -6px 12px black;
+                        p{
+                            width: calc(100% / 5 * 4.2);
+                            font-size: #{'min(1.6em,16px)'};
+                            line-height: $lh20;
+                            height: $lh80;
+                            font-weight: 700;
+                            overflow: hidden;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }       
+    }
+}
+.bnrWrap{
+    background: #fff;
+    color: #000;
+    margin-top:  #{'min(3rem,120px)'};
+    .banner{
+        @include gd('pc');
+        padding: $lh80 0px $lh80;
+        .text{
+            width: calc(100%);
+            text-align: center;
+            p{
+                font-size: #{'min(1.6em,16px)'};
+                line-height: $lh20;
+                height: #{'min(1.5rem,60px)'};
+                font-weight: 700;
+                text-transform: capitalize;
+                overflow: hidden;
+                font-family: 'lola';
+            }
+        }
+        .images{
+            .imgTop{
+                margin: #{'min(1.5rem,60px)'} auto;
+                width: calc(100% / 12 * 4);
+                height: $lh80;
+                @include bg;
+                background-image: url('../images/sub3/bnr1.png');
+            }
+            .imgBtm{
+                @include fx;
+                .imgGroup{
+                    width: calc(100% / 4 - 20px);
+                    .image{
+                        margin: 0 auto;
+                        height: $lh80;
+                        width: calc(100% / 4 * 1.3);
+                        @include bg;
+                        @for $img from 1 through 4{
+                            &.i#{$img}{
+                                background-image: url('../images/sub3/bnr2-#{$img}.png');
+                            }
+                        }
+                    }
+                    .texts{
+                        margin-top: $lh20;
+                        text-align: center;
+                        font-size: $h4;
+                        line-height: $lh20;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+.ftrWrap{
+    margin-top: #{'min(4rem,160px)'};
+    padding: $lh80 0px $lh80;
+    background-color: #1d1d1d;
+    footer{
+        @include fx;
+        @include gd('pc');
+        .ftrLeft{
+            width: calc(100% / 12 * 7);
+            .logo{
+                @include bg;
+                background-size: contain;
+                width: calc(100% / 7 * 1.8);
+                height: #{'min(2rem,80px)'};
+                background-image: url('../images/main/Slamp_footer_logo.png');
+            }
+            .info{
+                width: 102%;
+                margin-top: $lh40;
+                p{
+                    font-size: #{'min(1.4em,14px)'};
+                    line-height: $lh20;
+                    height: $lh40;
+                }
+                ul{
+                    width: calc(100% / 7 * 2.5);
+                    @include fx;
+                    li{
+                        margin-top: #{'min(0.5rem,20px)'};
+                        line-height: $lh20;
+                        font-size: #{'min(1.4em,14px)'};
+                        &::after{
+                            opacity: 50%;
+                            display: block;
+                            content: '';
+                            border: 1px solid #fff;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .ftrRight{
+            width: calc(100% / 12 * 2);
+            font-size: #{'min(2.4em,24px)'};
+            i{
+                background-color: #fff;
+                border-radius: 2px;
+                color: #000;
+            }
+        }
+    }
+}

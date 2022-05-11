@@ -79,11 +79,20 @@ html{
         @include gd('pc');
         @include fx;
         h1{
+            position: relative;
             cursor: pointer;
             font-size: $h1;
             text-transform: uppercase;
             font-weight: normal;
             line-height: $lh80;
+            a:link{
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
         }
         nav{
             text-transform: uppercase;
@@ -92,7 +101,16 @@ html{
             font-size: $h4;
             line-height: $lh80;
             h4{
+                position: relative;
                 cursor: pointer;
+                a:link{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
                 &:hover{
                     color: black;
                 }
@@ -169,6 +187,7 @@ html{
             overflow: hidden;
         }
         .btn{
+            position: relative;
             margin-left: auto;
             margin-top: $lh40;
             font-size: #{'min(1.6em,16px)'};
@@ -180,6 +199,14 @@ html{
             text-transform: capitalize;
             cursor: pointer;
             transition: all 0.5s;
+            a:link{
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
             &:hover{
                 background-color: #fff;
                 color: #000;
@@ -518,6 +545,9 @@ html{
                     width: calc(100% / 7 * 2.5);
                     @include fx;
                     li{
+                        margin-top: #{'min(0.5rem,20px)'};
+                        line-height: $lh20;
+                        font-size: #{'min(1.4em,14px)'};
                         &::after{
                             opacity: 50%;
                             display: block;

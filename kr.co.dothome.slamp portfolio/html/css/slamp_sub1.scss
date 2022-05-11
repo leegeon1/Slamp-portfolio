@@ -79,11 +79,20 @@ html{
         @include gd('pc');
         @include fx;
         h1{
+            position: relative;
             cursor: pointer;
             font-size: $h1;
             text-transform: uppercase;
             font-weight: normal;
             line-height: $lh80;
+            a:link{
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
         }
         nav{
             text-transform: uppercase;
@@ -93,6 +102,15 @@ html{
             line-height: $lh80;
             h4{
                 cursor: pointer;
+                position: relative;
+                a:link{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
                 &:hover{
                     color: black;
                 }
@@ -166,9 +184,12 @@ html{
             text-align: center;
             font-size: $h2;
             line-height: $lh80;
+            font-family: 'mr';
         }
     }
 }
+
+// 배너1
 
 .bnrWrap{
     .banner.bnr01{
@@ -181,6 +202,7 @@ html{
             h4{
                 font-size: $h4;
                 line-height: $lh40;
+                font-family: 'lola';
             }
             .image{
                 @include bg;
@@ -220,6 +242,7 @@ html{
             .texts{
                 width: calc(100% / 12 * 5);
                 h2{
+                    font-family: 'lola';
                     text-align: right;
                     margin-right: #{'min(1.75rem,70px)'};
                     margin-top: #{'min(5rem,200px)'};
@@ -310,6 +333,7 @@ html{
                         text-align: center;
                         margin-top: $lh40;
                         color: #fff;
+                        font-family: 'loa';
                         h3{
                             font-size: #{'min(2.4em,24px)'};
                             line-height: $lh40;
@@ -350,6 +374,7 @@ html{
     .banner.bnr03{
         padding-top: #{'min(8rem,320px)'};
         h2{
+            font-family: 'loa';
             font-size: #{'min(6em,60px)'};
             line-height: $lh80;
             text-transform: capitalize;
@@ -397,6 +422,7 @@ html{
                 }
             }
             .texts{
+                font-family: 'loa';
                 transition: all 0.4s;
                 position: absolute;
                 top: #{'min(5rem,200px)'};
@@ -439,6 +465,9 @@ html{
                     width: calc(100% / 7 * 2.5);
                     @include fx;
                     li{
+                        margin-top: #{'min(0.5rem,20px)'};
+                        line-height: $lh20;
+                        font-size: #{'min(1.4em,14px)'};
                         &::after{
                             opacity: 50%;
                             display: block;

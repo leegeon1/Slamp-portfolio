@@ -85,6 +85,15 @@ html{
             text-transform: uppercase;
             font-weight: normal;
             line-height: $lh80;
+            position: relative;
+            a:link{
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
         }
         nav{
             text-transform: uppercase;
@@ -94,8 +103,17 @@ html{
             line-height: $lh80;
             h4{
                 cursor: pointer;
+                position: relative;
+                a:link{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
                 &:hover{
-                    color: black;
+                    color: orange;
                 }
             }
         }
@@ -118,13 +136,16 @@ html{
             margin-top:  #{'min(3rem,120px)'};
             font-size: #{'min(4.8em,48px)'};
             line-height: $lh80;
+            font-family: 'mr';
         }
         h3{
             margin-top: $lh40;
             font-size: #{'min(2.8em,28px)'};
             line-height: $lh40;
+            font-family: 'loa';
         }
         p{
+            font-family: 'lola';
             margin-top: $lh40;
             font-size: #{'min(1.4em,14px)'};
             line-height: $lh20;
@@ -147,66 +168,75 @@ html{
             h2{
                 font-size: $h2;
                 line-height: $lh80;
+                font-family: 'mr';
             }
             ul{
-                width: calc(100% / 12 * 8);
+                width: calc(100% / 12 * 9);
                 margin: 0 auto;
                 @include fx;
                 flex-wrap: wrap;
                 font-size: $h4;
                 line-height: $lh40;
+                font-family: 'lola';
+                li{
+                    cursor: pointer;
+                }
             }
         }
         section{
-            @include fx;
-            flex-wrap: wrap;
-            article{
-                position: relative;
-                margin-top: $lh40;
-                width: calc(100% / 2 - #{'min(0.5rem,20px)'});
-                &:nth-child(4)~article{
-                    display: none;
-                }
-                .image{
-                    height: #{'min(10rem,400px)'};
-                    @include bg;
-                    @for $img from 1 through 12{
-                        &.i#{$img}{
-                            background-image: url('../images/sub2/sb2-#{$img}.jpg');
+            .artGroup{
+                @include fx;
+                flex-wrap: wrap;
+                article{
+                    position: relative;
+                    margin-top: $lh40;
+                    width: calc(100% / 2 - #{'min(0.5rem,20px)'});
+                    // &:nth-child(4)~article{
+                    //     display: none
+                    // }
+                    .image{
+                        height: #{'min(10rem,400px)'};
+                        @include bg;
+                        @for $img from 1 through 16{
+                            &.i#{$img}{
+                                background-image: url('../images/sub2/sb2-#{$img}.jpg');
+                            }
                         }
                     }
-                }
-                .texts{
-                    position: absolute;
-                    bottom: $lh20;right: 0;left: 0;
-                    text-align: center;
-                    font-size: $h4;
-                    line-height: $lh20;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    padding-left: $lh80;
-                    padding-right: $lh80;
-                    h3{
-                        text-shadow: 1.5px 1.5px 7px #000;
-                    }                
+                    .texts{
+                        position: absolute;
+                        bottom: $lh20;right: 0;left: 0;
+                        text-align: center;
+                        font-size: $h4;
+                        line-height: $lh20;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        padding-left: $lh80;
+                        padding-right: $lh80;
+                        h3{
+                            text-shadow: 1.5px 1.5px 7px #000;
+                            font-family: 'lola';
+                        }                
+                    }
                 }
             }
             .btn{
                 text-align: center;
-                line-height: $lh40;
+                line-height: #{'min(1.5rem,60px)'};
                 font-size: $h4;
                 width: calc(100% / 12 * 2.5);
                 background-color: #333;
                 text-transform: capitalize;
                 margin: 0 auto;
                 margin-top: $lh80;
+                font-weight: 700;
                 transition: all 0.4s;
+                cursor: pointer;
                 &:hover{
-                    line-height: #{'min(1.5rem,60px)'};
-                    margin-top: #{'min(-0.5em,-20px)'};
                     background-color: #fff;
                     color: #000;
-                    font-size: #{'min(2em,20px)'};;
+                    font-size: #{'min(1.8em,18px)'};
+                    font-weight: 700;
                 }
             }
         }
@@ -241,6 +271,9 @@ html{
                     width: calc(100% / 7 * 2.5);
                     @include fx;
                     li{
+                        margin-top: #{'min(0.5rem,20px)'};
+                        line-height: $lh20;
+                        font-size: #{'min(1.4em,14px)'};
                         &::after{
                             opacity: 50%;
                             display: block;
