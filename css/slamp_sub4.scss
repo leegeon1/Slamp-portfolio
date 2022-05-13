@@ -20,6 +20,7 @@ $lh20:#{'min(0.5rem,20px)'};
 @include ff(mr,'Merriweather-LightItalic.ttf');
 @include ff(lola,'Lora-Regular.ttf');
 @include ff(loa,'Lora-Italic.ttf');
+@include ff(bt,'BellMTItalic.ttf');
 
 // 그리드
 @mixin gd($dev){
@@ -128,121 +129,138 @@ html{
         }
     }
 }
+// 메인
 .mainWrap{
     main{
         @include gd('pc');
         text-align: left;
+        padding: #{'min(3rem,120px)'} 0px;
         h2{
-            margin-top:  #{'min(3rem,120px)'};
             font-size: #{'min(4.8em,48px)'};
             line-height: $lh80;
             font-family: 'mr';
-        }
-        h3{
-            margin-top: $lh40;
-            font-size: #{'min(2.8em,28px)'};
-            line-height: $lh40;
-            font-family: 'loa';
-        }
-        p{
-            font-family: 'lola';
-            margin-top: $lh40;
-            font-size: #{'min(1.4em,14px)'};
-            line-height: $lh20;
-            height: $lh40;
-            width: calc(100% / 12 * 8);
-        }
-        h4{
-            margin-top: $lh40;
-            font-size: $h4;
-            line-height: $lh40;
+            text-align: center;
         }
     }
 }
+
+// 컨텐츠 공통
 .cntWrap{
-    margin-top:  #{'min(3rem,120px)'};
+    margin-top: #{'min(2rem,80px)'};
     .content{
         @include gd('pc');
+        @include fx;
         header{
-            text-align: center;
-            h2{
-                font-size: $h2;
-                line-height: $lh80;
-                font-family: 'mr';
-            }
-            ul{
-                width: calc(100% / 12 * 9);
-                margin: 0 auto;
-                @include fx;
-                flex-wrap: wrap;
-                font-size: $h4;
+            width: calc(100% / 12 * 3);
+            h3{
+                font-size: #{'min(3em,30px)'};
                 line-height: $lh40;
-                font-family: 'lola';
-                li{
-                    cursor: pointer;
-                }
+                font-family: 'bt';
+            }
+            .btn{
+                margin-top: #{'min(4rem,160px)'};
+                font-size: #{'min(6em,60px)'};
+                line-height: $lh80;
+                opacity: 50%;
+                margin-left: #{'min(1.5rem,60px)'};
             }
         }
         section{
-            .artGroup{
-                @include fx;
-                flex-wrap: wrap;
-                article{
-                    position: relative;
-                    margin-top: $lh40;
-                    width: calc(100% / 2 - #{'min(0.5rem,20px)'});
-                    // &:nth-child(4)~article{
-                    //     display: none
-                    // }
-                    .image{
-                        height: #{'min(10rem,400px)'};
-                        @include bg;
-                        @for $img from 1 through 16{
-                            &.i#{$img}{
-                                background-image: url('../images/sub2/sb2-#{$img}.jpg');
+            width: calc(100% / 12 * 9);
+            .artView{
+                overflow: hidden;
+                width: calc((100vw - 1080px) / 2 + 100%);        
+                min-width: calc((100vw - 80vw) / 2 + 100%);
+                .artGroup{
+                    width: 150%;
+                    @include fx;
+                    article{
+                        width: calc(100% / 5 - #{'min(0.5rem,20px)'});
+                        .image{
+                            height: #{'min(12rem,480px)'};
+                            @include bg;
+                        }
+                        .texts{
+                            h3{
+                                margin-top: #{'min(1.5rem,30px)'};
+                                text-transform: uppercase;
+                                line-height: $lh20;
+                                font-size: #{'min(2em,20px)'};
+                                text-align: center;
+                                font-family: 'loa';
                             }
                         }
                     }
-                    .texts{
-                        position: absolute;
-                        bottom: $lh20;right: 0;left: 0;
-                        text-align: center;
-                        font-size: $h4;
-                        line-height: $lh20;
-                        text-transform: uppercase;
-                        font-weight: 700;
-                        padding-left: $lh80;
-                        padding-right: $lh80;
-                        h3{
-                            text-shadow: 1.5px 1.5px 7px #000;
-                            font-family: 'lola';
-                        }                
-                    }
-                }
-            }
-            .btn{
-                text-align: center;
-                line-height: #{'min(1.5rem,60px)'};
-                font-size: $h4;
-                width: calc(100% / 12 * 2.5);
-                background-color: #333;
-                text-transform: capitalize;
-                margin: 0 auto;
-                margin-top: $lh80;
-                font-weight: 700;
-                transition: all 0.4s;
-                cursor: pointer;
-                &:hover{
-                    background-color: #fff;
-                    color: #000;
-                    font-size: #{'min(1.8em,18px)'};
-                    font-weight: 700;
                 }
             }
         }
     }
 }
 
+
+// 컨텐츠1
+.cntWrap{
+    .content.cnt01{
+        section{
+            .artGroup{
+                article{
+                    &:nth-child(4) .texts{
+                        opacity: 0;
+                    }
+                    .image{
+                        @for $img from 1 through 5{
+                            &.i#{$img}{
+                                background-image: url('/images/sub4/cnt1-#{$img}.jpg');
+                            }
+                        }
+                    }
+                    .texts{
+                        transition: opacity 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 컨텐츠2
+.cntWrap{
+    .content.cnt02{
+        section{
+            .artGroup{
+                article{
+                    .image{
+                        @for $img from 1 through 5{
+                            &.i#{$img}{
+                                background-image: url('/images/sub4/cnt2-#{$img}.jpg');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.cntWrap{
+    .content.cnt03{
+        section{
+            .artGroup{
+                article{
+                    .image{
+                        @for $img from 1 through 5{
+                            &.i#{$img}{
+                                background-image: url('/images/sub4/cnt3-#{$img}.jpg');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 푸터
 .ftrWrap{
     margin-top: #{'min(4rem,160px)'};
     padding: $lh80 0px $lh80;

@@ -327,3 +327,33 @@ html{
         }
     }
 }
+
+
+// 반응형 태블릿 and 모바일 그리드
+@media (max-width:1024px) and (min-width:0px){
+    .hdrWrap{
+        header{
+            @include gd('');
+        }
+    }
+    .mainWrap{
+        main{
+            @include gd('');
+        }
+    }
+    .cntWrap{
+        .content{
+            @include gd('');
+        }
+    }
+    .brnWrap{
+        .banner{
+            @include gd('');
+        }
+    }
+    .ftrWrap{
+        footer{
+            @include gd('');
+        }
+    }
+}
