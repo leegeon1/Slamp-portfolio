@@ -5,7 +5,6 @@ $(function(){
     var art1 = $('.content.cnt01 section .artGroup .article');
     var btn2 = $('.content.cnt01 section .btn');
     var art2 = $('.content.cnt02 section article');
-
     
     
     
@@ -33,21 +32,28 @@ $(function(){
         });
     }; 
     
+
+    // 컨텐츠1 기초세팅
+    art1.find('.image').css('height', 'min(10rem,400px)');
+    art1.eq(1).find('.image').css('height', 'min(12rem,480px)');
+    art1.eq(2).find('.image').css('height', 'min(11rem,440px)');
+    art1.css('filter', 'grayscale(1)');
+    art1.eq(1).css('filter', 'grayscale(0)');
     // 컨텐츠1
     ag.css({
-        marginLeft : '-33%'
+        marginLeft : '-55%'
     });
-    $('.article').css('filter', 'grayscale(1)');
-    $('.article').eq(1).css('filter', 'grayscale(0)');
     function cnt1(){
-        ag.find('.article:eq(1)').animate({
-            marginLeft : '-33%',
-        },800,function(){
-            ag.find('.article:first').appendTo(ag);
-            ag.find('.article').css({marginLeft : '0%'});
+        ag.animate({
+            marginLeft : '-100%'
+        },800,function(){     
+            ag.find('.article:first').appendTo(ag);        
+            ag.css({marginLeft : '-55%'});
+            art1.eq(1).find('.image').css('height', 'min(12rem,480px)');
+            art1.eq(2).find('.image').css('height', 'min(11rem,440px)');
+            $('.article').css('filter', 'grayscale(1)');
+            $('.article').eq(1).css('filter', 'grayscale(0)');
         });
-        $('.article').css('filter', 'grayscale(1)');
-        $('.article').eq(2).css('filter', 'grayscale(0)');
     }
 
     // 컨텐츠2

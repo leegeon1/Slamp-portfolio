@@ -176,11 +176,15 @@ html{
                     @include fx;
                     article{
                         width: calc(100% / 5 - #{'min(0.5rem,20px)'});
+                        &:nth-child(3)~article .texts{
+                            opacity: 0;
+                        }
                         .image{
                             height: #{'min(12rem,480px)'};
                             @include bg;
                         }
                         .texts{
+                            transition: opacity 0.5s;
                             h3{
                                 margin-top: #{'min(1.5rem,30px)'};
                                 text-transform: uppercase;
@@ -204,18 +208,12 @@ html{
         section{
             .artGroup{
                 article{
-                    &:nth-child(4) .texts{
-                        opacity: 0;
-                    }
                     .image{
                         @for $img from 1 through 5{
                             &.i#{$img}{
                                 background-image: url('/images/sub4/cnt1-#{$img}.jpg');
                             }
                         }
-                    }
-                    .texts{
-                        transition: opacity 0.5s;
                     }
                 }
             }
