@@ -229,15 +229,12 @@ html{
             .image{
                 cursor: pointer;
                 @include bg;
+                height: #{'min(13rem,520px)'};
                 @for $img from 1 through 2{
                     &.i#{$img}{
                         width: 100%;
-                        height: #{'min(13rem,520px)'};
                         background-image: url('../images/main/content1-#{$img}.png');
                     }
-                }
-                &.i1{
-                    height: #{'min(13rem,520px)'};
                 }
             }
         }
@@ -571,8 +568,159 @@ html{
     }
 }
 
-// 반응형 태블릿 and 모바일 그리드
+// 반응형 태블릿
 @media (max-width:1024px) and (min-width:0px){
+    .hdrWrap{
+        header{
+            @include gd('');
+            nav{
+                width: calc(100% / 8 * 4.5);
+            }
+        }
+    }
+    .mainWrap{
+        height: 440px;
+        padding: 200px 0px 200px;
+        main{
+            @include gd('');
+            h2{
+                font-size: 30px;
+                line-height: $lh40;
+                margin-right: #{'min(1.75rem,70px)'};
+            }
+        }
+    }
+    // 컨텐츠 공통
+    .cntWrap{
+        margin-top: 80px;
+        .content{
+            @include gd('');
+            header{
+                h2{
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+            }
+        }
+    }
+    // 컨텐츠1
+    .content.cnt01{
+        header{
+            width: calc(100% / 8 * 4);
+            p{
+                font-size: 16px;
+                line-height: 20px;
+                height: 100px;
+            }
+            .btn{
+                width: calc(100% / 4 * 2);
+                font-size: 16px;
+                line-height: 40px;
+                margin-top: 40px;
+                margin-left: 0;
+            }
+        }
+        section{
+            height: 700px;
+            width: calc(100% / 8 * 3);
+            article{
+                &:nth-child(1){
+                    top: 300px;
+                    left: 200px;
+                }
+                .image{
+                    height: 400px;
+                }
+            }
+        }
+    }
+    .content.cnt02{
+        header{
+            p{
+                font-size: 14px;
+                line-height: 20px;
+                width: calc(100% / 8 * 6);
+                margin: 40px auto
+            }
+        }
+        section{
+            margin-top: 80px;
+            .artLeft{
+                margin-right: 10px;
+                width: calc(100% / 8 * 4);
+                .image{
+                    height: 360px;
+                }
+                .textTop{
+                    h3{
+                        font-size: 24px;
+                        line-height: 40px;
+                    }
+                    h4{
+                        font-size: 18px;
+                        line-height: 40px;
+                    }
+                }
+                .textBtm{
+                    margin-top: 60px;
+                    p{
+                        font-size: 14px;
+                        line-height: 20px;
+                        height: 60px;
+                    }
+                }
+            }
+            .artRight{
+                margin-left: 10px;
+                width: calc(100% / 8 * 4);
+                article{
+                    &:nth-child(2){
+                        margin-top: 40px;
+                    }
+                    .image{
+                        height: 360px;
+                    }
+                    .texts{
+                        margin-top: 40px;
+                        h4{
+                            font-size: 14px;
+                            line-height: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .bnrWrap{
+        margin-top: 80px;
+        .banner{
+            @include gd('');
+            .images{
+                .leftImage{
+                    display: none;
+                }
+                .rightImage{
+                    width: 100vw;
+                    max-width: none;
+                    .image{
+                        .ovrRight{
+                            height: 400px;
+                            width: 100%;
+                            min-width: 80%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .ftrWrap{
+        footer{
+            @include gd('');
+        }
+    }
+}
+// 반응형 모바일
+@media (max-width:420px) and (min-width:0px){
     .hdrWrap{
         header{
             @include gd('');
