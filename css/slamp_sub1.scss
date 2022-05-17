@@ -482,9 +482,29 @@ html{
 
 // 반응형 태블릿 and 모바일 그리드
 @media (max-width:1024px) and (min-width:0px){
+    html{
+        font-size: 5vw;  
+        body{
+            font-size: 1.25vw;
+        }
+    }
     .hdrWrap{
         header{
             @include gd('');
+            h1{
+                font-size: #{'min(3em,30px)'};
+                line-height: #{'min(2rem,80px)'};
+            }
+            nav{
+                display: none;
+            }
+            .menu{
+                width: calc(100% / 8 * 2);
+                justify-content: space-around;
+                i{
+                    line-height: #{'min(2rem,80px)'};
+                }
+            }
         }
     }
     .mainWrap{
@@ -503,8 +523,28 @@ html{
         }
     }
     .ftrWrap{
+        margin-top: #{'min(2rem,80px)'};
+        padding: $lh40 0px $lh40;
         footer{
             @include gd('');
+            .ftrLeft{
+                width: calc(100% / 8 * 7);
+                .logo{
+                    width: calc(100% / 7 * 1.8);
+                }
+                .info{
+                    margin-top: $lh80;
+                    p{
+                        font-size: #{'min(1.2em,12px)'};
+                    }
+                    ul{
+                        width: calc(100% / 7 * 2.8 );
+                    }
+                }
+            }
+            .ftrRight{
+                width: calc(100% / 8 * 2);
+            }
         }
     }
 }
