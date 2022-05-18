@@ -74,6 +74,17 @@ html{
                 color: orange;
             }
         }
+        .menu{
+            span{
+                background-color: #000;
+                &::before{
+                    background: #000;
+                }
+                &::after{
+                    background: #000;
+                }
+            }
+        }
     }
     header{
         @include gd('pc');
@@ -123,7 +134,13 @@ html{
             i{
                 cursor: pointer;
                 line-height: $lh80;
+                &:nth-child(4){
+                    display: none;
+                }
             }
+        }        
+        .menuMob{
+            display: none;
         }
     }
 }
@@ -569,7 +586,8 @@ html{
 // 반응형 태블릿
 @media (max-width:1024px) and (min-width:0px){
     html{
-        font-size: 5vw;  
+        font-size: 5vw;
+        overflow-x: hidden;
         body{
             font-size: 1.25vw;
         }
@@ -585,10 +603,127 @@ html{
                 display: none;
             }
             .menu{
-                width: calc(100% / 8 * 2);
-                justify-content: space-around;
+                width: calc(100% / 8);
+                justify-content: space-between;
                 i{
                     line-height: #{'min(2rem,80px)'};
+                    cursor: pointer;
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        display: none;
+                    }
+                    &:nth-child(4){
+                        display: block;
+                    }
+                }
+                // span{
+                //     position: relative;
+                //     display: block;
+                //     width: #{'min(0.75rem,30px)'};
+                //     backface-visibility: hidden;
+                //     margin-top: #{'min(1rem,40px)'};
+                    // &.on{
+                    //     background-color: transparent;
+                    // }
+                    // &.on::before{
+                    //     transition: all 0.3s;
+                    //     transform: rotate(45deg) translate(7px, 7px);
+                    // }
+                    // &.on::after{
+                    //     transition: all 0.3s;
+                    //     transform : rotate(-45deg) translate(7px, -7px);
+                    // }
+                    // &::before{
+                    //     position: absolute;
+                    //     left: 0;
+                    //     bottom: 10px;
+                    //     display: block;
+                    //     content: '';
+                    //     border: 2px;
+                    //     background-color: #fff;
+                    //     width: 100%;
+                    //     height: 2px;
+                    // }
+                    // &::after{
+                    //     display: block;
+                    //     content: '';
+                    //     border: 2px;
+                    //     background-color: #fff;
+                    //     width: 100%;
+                    //     height: 2px;
+                    //     position: absolute;
+                    //     left: 0;
+                    //     top: 10px;
+                    // }
+                // }
+            }
+            .menuMob{
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                color: #fff;
+                z-index: 1000;
+                .hdrMob{
+                    padding: 10px #{'min(0.5rem,20px)'} 0px;
+                    @include fx;
+                    .mobLeft{
+                        width: calc(100% / 8 * 1.5);
+                        .image{
+                            @include bg;
+                            background-size: contain;
+                            height: #{'min(1rem,40px)'};
+                            background-image: url('/images/main/Slamp_footer_logo.png');
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 8);
+                        .icon{
+                            @include fx;
+                            justify-content: space-around;
+                            i{                             
+                                font-size: #{'min(2.8em,28px)'};
+                                line-height: #{'min(1.5rem,40px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    padding-top: $lh80;
+                    position: relative;
+                    height: calc(100% - 50px);
+                    .nav{
+                        padding-left: $lh40;
+                        .gnb{
+                            cursor: pointer;
+                            font-family: 'mr';
+                            text-transform: uppercase;
+                            line-height: $lh40;
+                            font-size: #{'min(2.8em,28px)'};
+                            li{
+                                margin-top: #{'min(0.5rem,20px)'};
+                            }
+                        }
+                    }
+                    .mobSns{
+                        display: flex;
+                        border-top: 1px solid gray;
+                        overflow: hidden;
+                        font-size: #{'min(2.8em,28px)'};
+                        line-height: $lh80;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        li{
+                            margin-left: #{'min(0.5rem,20px)'};
+                        }
+                    }
                 }
             }
         }
