@@ -28,15 +28,19 @@ $(function(){
             marginLeft : ind * -100+'%',
         });
     }; 
-    
-    btn2.click(function(){
-        ag.animate({
-            marginLeft : '-40%'
-        },800,function(){     
-            ag.find('.article:first').appendTo(ag);        
-            ag.css({marginLeft : '-20%'});
-        });
-    });
+
+
+    // 컨텐츠1
+    // btn2.click(function(){
+    //     if(flag == true){
+    //         ag.animate({
+    //             marginLeft : '-40%'
+    //         },800,function(){     
+    //             ag.find('.article:first').appendTo(ag);        
+    //             ag.css({marginLeft : '-20%'});
+    //         });
+    //     }
+    // });
 
     // 컨텐츠2
     function cnt2(){
@@ -54,9 +58,17 @@ $(function(){
         });
     };
     if(wd >= 1025){
+        btn2.click(function(){
+            console.log(this);
+            ag.animate({
+                marginLeft : '-40%'
+            },800,function(){     
+                ag.find('.article:first').appendTo(ag);        
+                ag.css({marginLeft : '-20%'});
+            });
+        });
     }else if(wd>=420 && wd <= 1025){
         btn2.click(function(){
-            console.log('!!');
             ag.animate({
                 marginLeft : '-67%'
             },800,function(){     

@@ -125,7 +125,13 @@ html{
             i{
                 cursor: pointer;
                 line-height: $lh80;
+                &:nth-child(4){
+                    display: none;
+                }
             }
+        }
+        .menuMob{
+            display: none;
         }
     }
 }
@@ -316,29 +322,200 @@ html{
 
 // 반응형 태블릿 and 모바일 그리드
 @media (max-width:1024px) and (min-width:0px){
+    html{
+        font-size: 5vw;  
+        body{
+            font-size: 1.25vw;
+        }
+    }
     .hdrWrap{
         header{
             @include gd('');
+            h1{
+                font-size: #{'min(3em,30px)'};
+                line-height: #{'min(2rem,80px)'};
+            }
+            nav{
+                display: none;
+            }
+            .menu{
+                width: calc(100% / 8);
+                justify-content: space-between;
+                i{
+                    line-height: #{'min(2rem,80px)'};
+                    cursor: pointer;
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        display: none;
+                    }
+                    &:nth-child(4){
+                        display: block;
+                    }
+                }
+            }
+            .menuMob{
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                color: #fff;
+                z-index: 1000;
+                .hdrMob{
+                    padding: 10px #{'min(0.5rem,20px)'} 0px;
+                    @include fx;
+                    .mobLeft{
+                        width: calc(100% / 8 * 1.5);
+                        .image{
+                            @include bg;
+                            background-size: contain;
+                            height: #{'min(1rem,40px)'};
+                            background-image: url('/images/main/Slamp_footer_logo.png');
+                            position: relative;
+                            a:link{
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 8);
+                        .icon{
+                            @include fx;
+                            justify-content: space-around;
+                            i{                             
+                                font-size: #{'min(2.8em,28px)'};
+                                line-height: #{'min(1.5rem,40px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    padding-top: $lh80;
+                    position: relative;
+                    height: calc(100% - 50px);
+                    .nav{
+                        padding-left: $lh40;
+                        .gnb{
+                            cursor: pointer;
+                            font-family: 'mr';
+                            text-transform: uppercase;
+                            line-height: $lh40;
+                            font-size: #{'min(2.8em,28px)'};
+                            li{
+                                margin-top: #{'min(0.5rem,20px)'};
+                                position: relative;
+                                a:link{
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                }
+                            }
+                        }
+                    }
+                    .mobSns{
+                        display: flex;
+                        border-top: 1px solid gray;
+                        overflow: hidden;
+                        font-size: #{'min(2.8em,28px)'};
+                        line-height: $lh80;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        li{
+                            margin-left: #{'min(0.5rem,20px)'};
+                        }
+                    }
+                }
+            }
         }
     }
     .mainWrap{
         main{
             @include gd('');
+            padding: $lh80 0px #{'min(3rem,120px)'};
+            h2{
+                margin-top: 0;
+                font-size: #{'min(3em,30px)'};
+                line-height: $lh40;
+            }
         }
     }
     .cntWrap{
+        margin-top: #{'min(2rem,80px)'};
+        &:nth-child(3){
+            margin-top: 0px;
+        }
         .content{
             @include gd('');
-        }
-    }
-    .brnWrap{
-        .banner{
-            @include gd('');
+            header{
+                width: calc(100% / 8 * 2);
+                h3{
+                    font-size: #{'min(2.4em,24px)'};
+                }
+                .btn{
+                    margin-top: #{'min(2.5rem,100px)'};
+                }
+            }
+            section{
+                width: calc(100% / 8 * 6);
+                .artView{
+                    width: calc((100vw - 700px) / 2 + 100%);  
+                    min-width: calc((100vw - 90vw) / 2 + 100%);
+                    .artGroup{
+                        width: 200%;
+                        article{
+                            .image{
+                                height: #{'min(9rem,360px)'};
+                            }
+                            .texts{
+                                h3{
+                                    margin-top: #{'min(0.5rem,20px)'};
+                                    font-size: #{'min(1.6em,16px)'};
+                                    line-height: $lh20;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     .ftrWrap{
+        margin-top: #{'min(2rem,80px)'};
+        padding: $lh40 0px $lh40;
         footer{
             @include gd('');
+            .ftrLeft{
+                width: calc(100% / 8 * 7);
+                .logo{
+                    width: calc(100% / 7 * 1.8);
+                }
+                .info{
+                    margin-top: $lh80;
+                    p{
+                        font-size: #{'min(1.2em,12px)'};
+                    }
+                    ul{
+                        width: calc(100% / 7 * 2.8 );
+                    }
+                }
+            }
+            .ftrRight{
+                width: calc(100% / 8 * 2);
+            }
         }
     }
 }

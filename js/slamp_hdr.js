@@ -27,6 +27,5 @@ $(function(){
                 display : 'none'
             });
         }
-        console.log(wd);
     });
 });

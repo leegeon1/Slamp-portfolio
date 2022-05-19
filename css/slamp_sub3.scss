@@ -124,7 +124,13 @@ html{
             i{
                 cursor: pointer;
                 line-height: $lh80;
+                &:nth-child(4){
+                    display: none;
+                }
             }
+        }
+        .menuMob{
+            display: none;
         }
     }
 }
@@ -172,6 +178,7 @@ html{
                         width: calc(100% / 12 * 10);
                         margin: 0 auto;
                         p{
+                            transition: height 1s;
                             margin-top:  #{'min(1rem,40px)'};
                             font-size:  #{'min(1.4em,14px)'};
                             line-height: $lh20;
@@ -179,6 +186,17 @@ html{
                             width: 100%;
                             text-align: center;
                             overflow: hidden;
+                            &.on{
+                                height:#{'min(3rem,120px)'};
+                            }
+                        }
+                        h4{
+                            text-align: center;
+                            margin-top: $lh20;
+                            text-transform: capitalize;
+                            font-size:  #{'min(1.4em,14px)'};
+                            line-height: $lh20;
+                            opacity: 70%;
                         }
                     }
                 }
@@ -227,9 +245,10 @@ html{
         @include gd('pc');
         padding: $lh80 0px $lh80;
         .text{
-            width: calc(100%);
+            width: 100%;
             text-align: center;
             p{
+                transition: height 1s;
                 font-size: #{'min(1.6em,16px)'};
                 line-height: $lh20;
                 height: #{'min(1.5rem,60px)'};
@@ -237,6 +256,14 @@ html{
                 text-transform: capitalize;
                 overflow: hidden;
                 font-family: 'lola';
+            }
+            h4{
+                text-align: center;
+                margin-top: $lh20;
+                text-transform: capitalize;
+                font-size:  #{'min(1.4em,14px)'};
+                line-height: $lh20;
+                opacity: 80%;
             }
         }
         .images{
@@ -331,29 +358,244 @@ html{
 
 // 반응형 태블릿 and 모바일 그리드
 @media (max-width:1024px) and (min-width:0px){
+    html{
+        font-size: 5vw;  
+        body{
+            font-size: 1.25vw;
+        }
+    }
     .hdrWrap{
         header{
             @include gd('');
+            h1{
+                font-size: #{'min(3em,30px)'};
+                line-height: #{'min(2rem,80px)'};
+            }
+            nav{
+                display: none;
+            }
+            .menu{
+                width: calc(100% / 8);
+                justify-content: space-between;
+                i{
+                    line-height: #{'min(2rem,80px)'};
+                    cursor: pointer;
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        display: none;
+                    }
+                    &:nth-child(4){
+                        display: block;
+                    }
+                }
+            }
+            .menuMob{
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                color: #fff;
+                z-index: 1000;
+                .hdrMob{
+                    padding: 10px #{'min(0.5rem,20px)'} 0px;
+                    @include fx;
+                    .mobLeft{
+                        width: calc(100% / 8 * 1.5);
+                        .image{
+                            @include bg;
+                            background-size: contain;
+                            height: #{'min(1rem,40px)'};
+                            background-image: url('/images/main/Slamp_footer_logo.png');
+                            position: relative;
+                            a:link{
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 8);
+                        .icon{
+                            @include fx;
+                            justify-content: space-around;
+                            i{                             
+                                font-size: #{'min(2.8em,28px)'};
+                                line-height: #{'min(1.5rem,40px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    padding-top: $lh80;
+                    position: relative;
+                    height: calc(100% - 50px);
+                    .nav{
+                        padding-left: $lh40;
+                        .gnb{
+                            cursor: pointer;
+                            font-family: 'mr';
+                            text-transform: uppercase;
+                            line-height: $lh40;
+                            font-size: #{'min(2.8em,28px)'};
+                            position: relative;
+                            li{
+                                a:link{
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                }
+                                margin-top: #{'min(0.5rem,20px)'};
+                            }
+                        }
+                    }
+                    .mobSns{
+                        display: flex;
+                        border-top: 1px solid gray;
+                        overflow: hidden;
+                        font-size: #{'min(2.8em,28px)'};
+                        line-height: $lh80;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        li{
+                            margin-left: #{'min(0.5rem,20px)'};
+                        }
+                    }
+                }
+            }
         }
     }
     .mainWrap{
+        padding-top: $lh80;
         main{
             @include gd('');
+            h2{
+                margin-top: 0;
+                font-size: #{'min(3em,30px)'};
+                line-height: $lh40;
+            }
+            h3{
+                font-size: #{'min(1.8em,18px)'};
+                margin-top: 0;
+            }
+            p{
+                width: calc(100% / 8 * 5);
+            }
         }
     }
     .cntWrap{
+        margin-top:  #{'min(2rem,80px)'};
         .content{
             @include gd('');
+            section{
+                article{
+                    &:nth-child(1){
+                        .image.i1{
+                            width: calc(100% / 8 * 4);
+                            height: #{'min(10rem,400px)'};
+                        }
+                        .texts{
+                            width: 100%;
+                        }
+                    }
+                    &:nth-child(2){
+                        margin-top: #{'min(4rem,160px)'};
+                        height: #{'min(11rem,440px)'};
+                        .image.i2{
+                            width: calc(100% / 8 * 5);
+                            height: #{'min(7rem,280px)'};
+                            margin-left: 0;
+                        }
+                        .texts{
+                            padding-top: $lh40;
+                            width: calc(100% / 8 * 5);
+                            right: 0;
+                            height: #{'min(7rem,200px)'};
+                            p{
+                                width: calc(100% / 5 * 4.5);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-    .brnWrap{
+    .bnrWrap{
+        margin-top:  #{'min(2rem,80px)'};
         .banner{
             @include gd('');
+            .text{
+                p{
+                    font-size: #{'min(1.4em,14px)'};
+                    height: #{'min(1rem,40px)'};
+                    &.on{
+                        height: #{'min(2rem,80px)'};
+                    }
+                }
+                h4{
+                    font-size:  #{'min(1.2em,12px)'};
+                }
+            }
+            .images{
+                .imgTop{
+                    margin: #{'min(2rem,80px)'} auto;
+                    width: calc(100% / 8 * 4);
+                }
+                .imgBtm{
+                    flex-wrap: wrap;
+                    .imgGroup{
+                        width: calc(100% / 2 - #{'min(0.5rem,20px)'});
+                        &:nth-child(2)~div{
+                            margin-top: $lh40;
+                        }
+                        .image{
+                            width: calc(100% / 4 * 1.2);
+                        }
+                        .texts{
+                            padding: 0px $lh40;
+                            font-size: #{'min(1.6em,16px)'};
+                        }
+                    }
+                }
+            }
         }
     }
     .ftrWrap{
+        margin-top: #{'min(2rem,80px)'};
+        padding: $lh40 0px $lh40;
         footer{
             @include gd('');
+            .ftrLeft{
+                width: calc(100% / 8 * 7);
+                .logo{
+                    width: calc(100% / 7 * 1.8);
+                }
+                .info{
+                    margin-top: $lh80;
+                    p{
+                        font-size: #{'min(1.2em,12px)'};
+                    }
+                    ul{
+                        width: calc(100% / 7 * 2.8 );
+                    }
+                }
+            }
+            .ftrRight{
+                width: calc(100% / 8 * 2);
+            }
         }
     }
 }
