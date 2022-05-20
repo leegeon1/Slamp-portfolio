@@ -1191,7 +1191,7 @@ html{
                         height: $lh80;
                     }
                     ul{
-                        width: calc(100% / 3 * 2.5);
+                          width: calc(100% / 3 * 2.5);
                         li{
                             font-size: #{'min(1.2em,12px)'};
                         }
