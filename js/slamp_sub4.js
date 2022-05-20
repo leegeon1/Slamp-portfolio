@@ -9,13 +9,27 @@ $(function(){
     var onOff = false;
     var onOff1 = false;
     var onOff2 = false;
+    var wd = $(window).width();
 
 
 
 
-    btn1.click(cnt1);
-    btn2.click(cnt2);
-    btn3.click(cnt3);
+
+    if(wd >= 1025){
+        btn1.click(cnt1);
+        btn2.click(cnt2);
+        btn3.click(cnt3);
+    } else if(wd >= 420 && wd <= 1025){
+        btn1.click(cnt11);
+        btn2.click(cnt22);
+        btn3.click(cnt33);
+    } else {
+      // mo 스크립트 입력
+    }
+
+
+
+    // pc 슬라이드
 
     // 컨텐츠1
     function cnt1(){
@@ -51,6 +65,49 @@ $(function(){
         if(!onOff2){
             onOff2 = true;        
             ag3.animate({
+                marginLeft : '-40%'
+            },500,function(){
+                ag3.find('article:first').appendTo(ag3);
+                ag3.css({marginLeft : '0%'});
+                onOff2 = false;
+            });
+        };
+    };
+
+    // tablet 슬라이드
+    function cnt11(){
+        if(!onOff){
+            onOff = true;
+            ag1.animate({
+                marginLeft : '-40%'
+            },500,function(){
+                ag1.find('article:first').appendTo(ag1);
+                ag1.css({marginLeft : '0%'});
+                onOff = false;
+            });
+        };
+    };
+    
+    // 컨텐츠2
+    function cnt22(){
+        if(!onOff1){
+            onOff1 = true;
+            ag2.animate({
+                marginLeft : '-40%'
+            },500,function(){
+                ag2.find('article:first').appendTo(ag2);
+                ag2.css({marginLeft : '0%'});
+                onOff1 = false;
+            });
+            
+        };
+    };
+    
+    // 컨텐츠3
+    function cnt33(){
+        if(!onOff2){
+            onOff2 = true;        
+            ag3.animate({
                 marginLeft : '-30%'
             },500,function(){
                 ag3.find('article:first').appendTo(ag3);
@@ -58,5 +115,6 @@ $(function(){
                 onOff2 = false;
             });
         };
-    };   
+    };
+
 });

@@ -74,6 +74,17 @@ html{
                 color: orange;
             }
         }
+        .menu{
+            span{
+                background-color: #000;
+                &::before{
+                    background: #000;
+                }
+                &::after{
+                    background: #000;
+                }
+            }
+        }
     }
     header{
         @include gd('pc');
@@ -123,7 +134,13 @@ html{
             i{
                 cursor: pointer;
                 line-height: $lh80;
+                &:nth-child(4){
+                    display: none;
+                }
             }
+        }        
+        .menuMob{
+            display: none;
         }
     }
 }
@@ -569,7 +586,8 @@ html{
 // 반응형 태블릿
 @media (max-width:1024px) and (min-width:0px){
     html{
-        font-size: 5vw;  
+        font-size: 5vw;
+        overflow-x: hidden;
         body{
             font-size: 1.25vw;
         }
@@ -585,10 +603,145 @@ html{
                 display: none;
             }
             .menu{
-                width: calc(100% / 8 * 2);
-                justify-content: space-around;
+                width: calc(100% / 8);
+                justify-content: space-between;
                 i{
                     line-height: #{'min(2rem,80px)'};
+                    cursor: pointer;
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        display: none;
+                    }
+                    &:nth-child(4){
+                        display: block;
+                    }
+                }
+                // span{
+                //     position: relative;
+                //     display: block;
+                //     width: #{'min(0.75rem,30px)'};
+                //     backface-visibility: hidden;
+                //     margin-top: #{'min(1rem,40px)'};
+                    // &.on{
+                    //     background-color: transparent;
+                    // }
+                    // &.on::before{
+                    //     transition: all 0.3s;
+                    //     transform: rotate(45deg) translate(7px, 7px);
+                    // }
+                    // &.on::after{
+                    //     transition: all 0.3s;
+                    //     transform : rotate(-45deg) translate(7px, -7px);
+                    // }
+                    // &::before{
+                    //     position: absolute;
+                    //     left: 0;
+                    //     bottom: 10px;
+                    //     display: block;
+                    //     content: '';
+                    //     border: 2px;
+                    //     background-color: #fff;
+                    //     width: 100%;
+                    //     height: 2px;
+                    // }
+                    // &::after{
+                    //     display: block;
+                    //     content: '';
+                    //     border: 2px;
+                    //     background-color: #fff;
+                    //     width: 100%;
+                    //     height: 2px;
+                    //     position: absolute;
+                    //     left: 0;
+                    //     top: 10px;
+                    // }
+                // }
+            }
+            .menuMob{
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                color: #fff;
+                z-index: 1000;
+                .hdrMob{
+                    padding: 10px #{'min(0.5rem,20px)'} 0px;
+                    @include fx;
+                    .mobLeft{
+                        width: calc(100% / 8 * 1.5);
+                        .image{
+                            position: relative;
+                            @include bg;
+                            background-size: contain;
+                            height: #{'min(1rem,40px)'};
+                            background-image: url('/images/main/Slamp_footer_logo.png');
+                            a:link{
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 8);
+                        .icon{
+                            @include fx;
+                            justify-content: space-around;
+                            i{                             
+                                font-size: #{'min(2.8em,28px)'};
+                                line-height: #{'min(1rem,40px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    padding-top: $lh80;
+                    position: relative;
+                    height: calc(100% - 50px);
+                    .nav{
+                        padding-left: $lh40;
+                        .gnb{
+                            cursor: pointer;
+                            font-family: 'mr';
+                            text-transform: uppercase;
+                            line-height: $lh40;
+                            font-size: #{'min(2.8em,28px)'};
+                            li{
+                                position: relative;
+                                margin-top: #{'min(0.5rem,20px)'};
+                                a:link{
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                }
+                            }
+                        }
+                    }
+                    .mobSns{
+                        display: flex;
+                        border-top: 1px solid gray;
+                        overflow: hidden;
+                        font-size: #{'min(2.8em,28px)'};
+                        line-height: $lh80;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        li{
+                            margin-left: #{'min(0.5rem,20px)'};
+                        }
+                    }
                 }
             }
         }
@@ -810,29 +963,245 @@ html{
 }
 // 반응형 모바일
 @media (max-width:420px) and (min-width:0px){
+    html{
+        font-size: 10.5vw;
+        overflow-x: hidden;
+        body{
+            font-size: 2.625vw;
+        }
+    }
     .hdrWrap{
         header{
             @include gd('');
+            h1{
+                font-size: #{'min(2.4em,24px)'};
+                line-height: #{'min(1rem,40px)'};
+            }
+            .menu{
+                width: calc(100% / 4 * 0.7);
+                font-size: #{'min(2.4em,24px)'};
+                i{
+                    line-height: #{'min(1rem,40px)'};
+                }
+            }
+            .menuMob{
+                .hdrMob{
+                    .mobLeft{
+                        width: calc(100% / 4);
+                        .image{
+                            height: #{'min(1.5rem,60px)'};
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 4);
+                        .icon{
+                            i{
+                                line-height: #{'min(1.5rem,60px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    .nav{
+                        padding-left: $lh20;
+                        .gnb{
+                            font-size: #{'min(2.4em,24px)'};
+                            li{
+                                margin-top: #{'min(0.75rem,30px)'};
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     .mainWrap{
+        margin-top: #{'max(-1rem,-40px)'};
+        padding: #{'min(4.5rem,140px)'} 0px #{'min(4.5rem,140px)'};
+        height: #{'min(8rem,320px)'};
         main{
             @include gd('');
+            h2{
+                font-size: #{'min(2.4em,24px)'};
+                margin-right: 0px;
+            }
         }
     }
     .cntWrap{
         .content{
             @include gd('');
+            header{
+                h2{
+                    font-size: #{'min(2.4em,24px)'};
+                }
+            }
         }
     }
-    .brnWrap{
+    .cntWrap{
+        .content.cnt01{
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column-reverse;
+            header{
+                width: 100%;
+                p{
+                    font-size: #{'min(1.2em,12px)'};
+                    margin-top: 0;
+                }
+                .btn{
+                    margin-left: auto;
+                    width: calc(100% / 4 *  1.5);
+                    font-size: #{'min(1.4em,14px)'};
+                }
+            }
+            section{
+                height: #{'min(7rem,280px)'};
+                flex-direction: column-reverse;
+                width: 100%;
+                justify-content: flex-start;
+                article{
+                    &:nth-child(1){
+                        display: none;
+                        position: static;
+                        top: 0;
+                        left: 0;
+                    }
+                    .image{
+                        height: #{'min(7rem,280px)'};
+                    }
+                }
+            }
+        }
+    }
+    .cntWrap{
+        .content.cnt02{
+            header{
+                p{
+                    width: 100%;
+                    font-size: #{'min(1.2em,12px)'};
+                    margin: 0;
+                    margin-top:#{'min(0.5rem,20px)'};
+                }
+            }
+            section{
+                margin-top: $lh20;
+                .artLeft{
+                    display: none
+                }
+                .artRight{
+                    width: 100%;
+                    article{
+                        &:nth-child(2){
+                            display: none
+                        }
+                        .image{
+                            height: #{'min(8rem,320px)'};
+                        }
+                        .texts{
+                            margin-top: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .bnrWrap{
+        margin-top: #{'min(2rem,80px)'};
         .banner{
-            @include gd('');
+            .images{
+                .rightImage{
+                    .image{
+                        .ovrRight{
+                            height: #{'min(8rem,320px)'};
+                        }
+                    }
+                }
+            }
+            .texts{
+                width: calc(100% / 4 * 3.5);
+                h2{
+                    font-size: #{'min(2.4em,24px)'};
+                    line-height: $lh40;
+                }
+            }
+            .btn{
+                width: calc(100% / 4 * 1.5);
+                bottom: #{'min(0.5rem,20px)'};
+                font-size: #{'min(1.4em,14px)'};
+                line-height: $lh40;
+                text-transform: uppercase;
+                opacity: 80%;
+            }
+        }
+    }
+    .content.cnt03{
+        display: none;
+    }
+    .content.cnt04{
+        position: relative;
+        header{
+            position: absolute;
+            top: $lh80;left: 0;right: 0;bottom: 0;
+        }
+        section{
+            background-image: url('../images/main/content4_wrap_mb.png');
+            height: #{'min(16rem,640px)'};
+            .text{
+                display: none;
+            }
+            .artView{
+                width: calc(100% / 4 * 2.8);
+                .artGroup{
+                    margin-top: #{'min(4rem,160px)'};
+                    width: 500%;
+                    article{
+                        width: 100%;
+                        &:nth-child(2) .image{
+                            width: 100%;
+                            margin-left: 0%;
+                            margin-top: 0;
+                            height: #{'min(8rem,320px)'};
+                        }
+                        .image{
+                            height: #{'min(8rem,320px)'};
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+            .btns{
+                position: static;
+                width: 40%;
+                margin-top: $lh40;
+                top: 0;bottom: 0;left: 0
+            }
         }
     }
     .ftrWrap{
         footer{
             @include gd('');
+            .ftrLeft{
+                width: calc(100% / 4 * 3);
+                .logo{
+                    width: calc(100% / 2.8 * 1.5);
+                }
+                .info{
+                    margin-top: $lh40;
+                    p{
+                        height: $lh80;
+                    }
+                    ul{
+                        width: calc(100% / 3 * 2.5);
+                        li{
+                            font-size: #{'min(1.2em,12px)'};
+                        }
+                    }
+                }
+            }
+            .ftrRight{
+                width: calc(100% / 4 * 1.2);
+                text-align: right;
+            }
         }
     }
 }

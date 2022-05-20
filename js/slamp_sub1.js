@@ -5,20 +5,17 @@ $(function(){
     var art1 = $('.content.cnt01 section .artGroup .article');
     var btn2 = $('.content.cnt01 section .btn');
     var art2 = $('.content.cnt02 section article');
+    var wd = $(window).width();
     
     
     
     
     
-    // 파라미터
-
     // 배너
     btn1.click(bnr1);
-    // 컨텐츠1
-    btn2.click(cnt1);
     // 컨텐츠2
-    // art2.mouseover(cnt2);
-    // art2.mouseleave(cnt22);
+    art2.mouseover(cnt2);
+    art2.mouseleave(cnt22);
     
     
     
@@ -31,44 +28,62 @@ $(function(){
             marginLeft : ind * -100+'%',
         });
     }; 
-    
 
-    // 컨텐츠1 기초세팅
-    // art1.find('.image').css('height', 'min(10rem,400px)');
-    // art1.eq(1).find('.image').css('height', 'min(12rem,480px)');
-    // art1.eq(2).find('.image').css('height', 'min(11rem,440px)');
-    // art1.css('filter', 'grayscale(1)');
-    // art1.eq(1).css('filter', 'grayscale(0)');
+
     // 컨텐츠1
-    // ag.css({
-    //     marginLeft : '-55%'
+    // btn2.click(function(){
+    //     if(flag == true){
+    //         ag.animate({
+    //             marginLeft : '-40%'
+    //         },800,function(){     
+    //             ag.find('.article:first').appendTo(ag);        
+    //             ag.css({marginLeft : '-20%'});
+    //         });
+    //     }
     // });
-    function cnt1(){
-        ag.animate({
-            marginLeft : '-40%'
-        },800,function(){     
-            ag.find('.article:first').appendTo(ag);        
-            ag.css({marginLeft : '-20%'});
-            // art1.eq(1).find('.image').css('height', 'min(12rem,480px)');
-            // art1.eq(2).find('.image').css('height', 'min(11rem,440px)');
-            // $('.article').css('filter', 'grayscale(1)');
-            // $('.article').eq(1).css('filter', 'grayscale(0)');
-        });
-    }
 
     // 컨텐츠2
-    // function cnt2(){
-    //     var ind = $(this).index()
-    //     art2.find('.texts').eq(ind).css({
-    //         opacity : '0',
-    //         marginTop : '-10%'
-    //     });
-    // };
-    // function cnt22(){
-    //     var ind = $(this).index()
-    //     art2.find('.texts').eq(ind).css({
-    //         opacity : '1',
-    //         marginTop : '0%'
-    //     });
-    // };
+    function cnt2(){
+        var ind = $(this).index()
+        art2.find('.texts').eq(ind).css({
+            opacity : '0',
+            marginTop : '-10%'
+        });
+    };
+    function cnt22(){
+        var ind = $(this).index()
+        art2.find('.texts').eq(ind).css({
+            opacity : '1',
+            marginTop : '0%'
+        });
+    };
+    if(wd >= 1025){
+        btn2.click(function(){
+            console.log(this);
+            ag.animate({
+                marginLeft : '-40%'
+            },800,function(){     
+                ag.find('.article:first').appendTo(ag);        
+                ag.css({marginLeft : '-20%'});
+            });
+        });
+    }else if(wd>=420 && wd <= 1025){
+        btn2.click(function(){
+            ag.animate({
+                marginLeft : '-67%'
+            },800,function(){     
+                ag.find('.article:first').appendTo(ag);        
+                ag.css({marginLeft : '-34%'});
+            });
+        });
+    }else{
+        btn2.click(function(){
+            ag.animate({
+                marginLeft : '-200%'
+            },800,function(){     
+                ag.find('.article:first').appendTo(ag);        
+                ag.css({marginLeft : '-100%'});
+            });
+        });
+    }      
 });

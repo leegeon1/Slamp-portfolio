@@ -54,7 +54,7 @@ html{
         background-color: #000;
         color: #fff;
         font-size: 0.7vw;
-        // overflow-x: hidden;
+        overflow-x: hidden;
     }
 }
 // 헤더
@@ -123,7 +123,13 @@ html{
             i{
                 cursor: pointer;
                 line-height: $lh80;
+                &:nth-child(4){
+                    display: none;
+                }
             }
+        }
+        .menuMob{
+            display: none;
         }
     }
 }
@@ -160,7 +166,7 @@ html{
             margin-left:  #{'min(1.75rem,70px)'};
             line-height: $lh40;
             font-size: #{'min(1.6em,16px)'};
-            text-transform: uppercase;
+            text-transform: capitalize;
             background-color: #837c7a;
             width: calc(100% / 12 * 2);
             text-align: center;
@@ -262,14 +268,10 @@ html{
         section{
             width: 100%;
             position: relative;
-            // overflow: hidden;
-            height: #{'min(17rem,680px)'};
             .txtbtn{
                 text-align: center;
                 width: calc(100% / 12 * 1.5);
-                position: absolute;
-                bottom: $lh20;
-                right: 0;
+                margin: $lh80 auto;
                 font-size: #{'min(1.6em,16px)'};
                 line-height: $lh40;
                 text-transform: uppercase;
@@ -286,21 +288,15 @@ html{
                 width: 100vw;
                 margin-left: #{'min(calc((100vw - 1080px) / -2),calc((100vw - 80vw) / -2))'};
                 // outline: 2px solid red;
-                // overflow: hidden;
+                overflow: hidden;
                 .artGroup{
                     margin-top: #{'min(1.5rem,60px)'};
                     width: 200%;
                     // position: relative;
                     margin-left: -20%;
-                    height: #{'min(15rem,600px)'};
                     @include fx;
                     .article{
-                        width: calc(100% / 10);
-                        .texts{
-                            opacity: 0;
-                        }
-
-                        
+                        width: calc(100% / 5);
                         .image{
                             transition:  0.8s;
                             filter: grayscale(1);
@@ -312,25 +308,22 @@ html{
                                 }
                             }    
                         }
-                   
                         
                         &:nth-child(3) .image{
                             filter: grayscale(0);
-                            // height: #{'min(12rem,480px)'};
                         }
-                        // .texts{
-                        //     text-align: center;
-                        //     // color: #fff;
-                        //     font-family: 'loa';
-                        //     h3{
-                        //         font-size: #{'min(2.4em,24px)'};
-                        //         line-height: $lh40;
-                        //     }
-                        //     h4{
-                        //         font-size: #{'min(1.8em,18px)'};
-                        //         line-height: $lh40;
-                        //     }
-                        // }
+                        .texts{
+                            text-align: center;
+                            font-family: 'loa';
+                            h3{
+                                font-size: #{'min(2.4em,24px)'};
+                                line-height: $lh40;
+                            }
+                            h4{
+                                font-size: #{'min(1.8em,18px)'};
+                                line-height: $lh40;
+                            }
+                        }
                     }
                 }
             }
@@ -499,27 +492,260 @@ html{
                 display: none;
             }
             .menu{
-                width: calc(100% / 8 * 2);
-                justify-content: space-around;
+                width: calc(100% / 8);
+                justify-content: space-between;
                 i{
                     line-height: #{'min(2rem,80px)'};
+                    cursor: pointer;
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        display: none;
+                    }
+                    &:nth-child(4){
+                        display: block;
+                    }
+                }
+            }
+            .menuMob{
+                display: none;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                color: #fff;
+                z-index: 1000;
+                .hdrMob{
+                    padding: 10px #{'min(0.5rem,20px)'} 0px;
+                    @include fx;
+                    .mobLeft{
+                        width: calc(100% / 8 * 1.5);
+                        .image{
+                            @include bg;
+                            background-size: contain;
+                            height: #{'min(1rem,40px)'};
+                            background-image: url('/images/main/Slamp_footer_logo.png');
+                            position: relative;
+                            a:link{
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 8);
+                        .icon{
+                            @include fx;
+                            justify-content: space-around;
+                            i{                             
+                                font-size: #{'min(2.8em,28px)'};
+                                line-height: #{'min(1.5rem,40px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    padding-top: $lh80;
+                    position: relative;
+                    height: calc(100% - 50px);
+                    .nav{
+                        padding-left: $lh40;
+                        .gnb{
+                            cursor: pointer;
+                            font-family: 'mr';
+                            text-transform: uppercase;
+                            line-height: $lh40;
+                            font-size: #{'min(2.8em,28px)'};
+                            li{
+                                position: relative;
+                                margin-top: #{'min(0.5rem,20px)'};
+                                a:link{
+                                    width: 100%;
+                                    height: 100%;
+                                    display: block;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                }
+                            }
+                        }
+                    }
+                    .mobSns{
+                        display: flex;
+                        border-top: 1px solid gray;
+                        overflow: hidden;
+                        font-size: #{'min(2.8em,28px)'};
+                        line-height: $lh80;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        li{
+                            margin-left: #{'min(0.5rem,20px)'};
+                        }
+                    }
                 }
             }
         }
     }
     .mainWrap{
+        padding: #{'min(4rem,160px)'} 0px #{'min(2rem,80px)'};
+        height: #{'min(11rem,440px)'};
         main{
             @include gd('');
+            h2{
+                font-size: #{'min(3em,30px)'};
+                line-height: #{'min(1rem,40px)'};
+                margin-right: #{'min(1.75rem,70px)'};
+            }
+            p{
+                font-size: #{'min(1.6em,16px)'};
+            }
         }
     }
-    .cntWrap{
-        .content{
-            @include gd('');
-        }
-    }
-    .brnWrap{
+    // 배너공통
+    .bnrWrap{
+        margin-top: #{'min(2rem,80px)'};
         .banner{
             @include gd('');
+        }
+    }
+    // 배너1
+    .bnrWrap{
+        .banner.bnr01{
+            .icon{
+                h4{
+                    font-size: #{'min(1.4em,14px)'};
+                    line-height: $lh20;
+                }
+                .image{
+                    width: 100%;
+                    height: #{'min(1.5rem,60px)'};
+                }
+            }
+        }
+    }
+    // 배너2
+    .bnrWrap{
+        .banner.bnr02{
+            width: 100%;
+            max-width: none;
+            overflow: hidden;
+            .bnrTeam{
+                .bnrGroup{
+                    position: relative;
+                    display: block;
+                    .image{
+                        width: 100%;
+                        height: #{'min(10rem,400px)'};
+                    }
+                    .texts{
+                        position: absolute;
+                        top: $lh80;
+                        left: 10%;
+                        width: 100%;
+                        h2{
+                            margin-top: 0;
+                            margin-right: 0;
+                            font-size: #{'min(4.8em,48px)'};
+                            text-align: left;
+                            &:nth-child(2){
+                                margin-top: $lh40;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 컨텐츠 공통
+    .cntWrap{
+        margin-top: #{'min(2rem,80px)'};
+        .content{
+            @include gd('');
+            header{
+                font-size: #{'min(3em,30px)'};
+            }
+        }
+    }
+    // 컨텐츠1
+    .cntWrap{
+        .content.cnt01{
+            section{
+                .txtbtn{
+                    width: calc(100% / 8 * 1.5);
+                    margin: $lh40 auto;
+                }
+                .btn{
+                    top: #{'min(5rem,200px)'};
+                    font-size: #{'min(4.8em,48px)'};
+                }
+                .artView{
+                    margin-left: #{'min(calc((100vw - 700px) / -2),calc((100vw - 90vw) / -2))'};
+                    .artGroup{
+                        margin-left: -34%;
+                        width: 335%;
+                        .article{
+                            width: calc(100% / 3);
+                            .image{
+                                height: #{'min(9rem,360px)'};
+                            }
+                            .texts{
+                                h3{
+                                    font-size: #{'min(1.8em,18px)'};
+                                }
+                                h4{
+                                    font-size: #{'min(1.4em,14px)'};
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .bnrWrap{
+        &:nth-child(6){
+            height: #{'min(10rem,400px)'};
+            &::after{
+                height: #{'min(10rem,400px)'};
+            }
+        }
+        .banner.bnr03{
+            padding-top: #{'min(4rem,160px)'};
+            h2{
+                font-size: #{'min(3.6em,36px)'};
+            }
+        }
+    }
+    // 컨텐츠2
+    .cntWrap{
+        .content.cnt02{
+            section{
+                margin-top: 0;
+                flex-wrap: wrap;
+                article{
+                    margin-top: $lh40;
+                    // margin-top: #{'min(1rem,40px)'};
+                    width: calc(100% / 2 - #{'min(0.5rem,20px)'});
+                    .image{
+                        height: #{'min(10rem,400px)'};
+                        &::after{
+                            height: #{'min(10rem,400px)'};
+                        }
+                    }
+                    .texts{
+                        font-size: #{'min(2.4em,24px)'};
+                    }
+                }
+            }
         }
     }
     .ftrWrap{
@@ -544,6 +770,227 @@ html{
             }
             .ftrRight{
                 width: calc(100% / 8 * 2);
+            }
+        }
+    }
+}
+@media (max-width:420px) and (min-width:0px){
+    html{
+        font-size: 10.5vw;
+        overflow-x: hidden;
+        body{
+            font-size: 2.625vw;
+        }
+    }
+    .hdrWrap{
+        header{
+            @include gd('');
+            h1{
+                font-size: #{'min(2.4em,24px)'};
+                line-height: #{'min(1rem,40px)'};
+            }
+            .menu{
+                width: calc(100% / 4 * 0.7);
+                font-size: #{'min(2.4em,24px)'};
+                i{
+                    line-height: #{'min(1rem,40px)'};
+                }
+            }
+            .menuMob{
+                .hdrMob{
+                    .mobLeft{
+                        width: calc(100% / 4);
+                        .image{
+                            height: #{'min(1.5rem,60px)'};
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 4);
+                        .icon{
+                            i{
+                                line-height: #{'min(1.5rem,60px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    .nav{
+                        padding-left: $lh20;
+                        .gnb{
+                            font-size: #{'min(2.4em,24px)'};
+                            li{
+                                margin-top: #{'min(0.75rem,30px)'};
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mainWrap{
+        margin-top: #{'max(-1rem,-40px)'};
+        padding: #{'min(4.5rem,80px)'} 0px #{'min(4.5rem,140px)'};
+        height: #{'min(8rem,320px)'};
+        main{
+            @include gd('');
+            h2{
+                font-size: #{'min(2.4em,24px)'};
+                margin-left: $lh40;
+            }
+            p{
+                margin-top: $lh20;
+                margin-left: $lh40;
+                font-size: #{'min(1.4em,14px)'};
+                height: #{'min(1.5rem,60px)'};
+                color: #000;
+            }
+            .btn{
+                margin-top: $lh40;
+                margin-left: $lh40;
+                width: calc(100% / 4 * 1.5);
+                font-size: #{'min(1.4em,14px)'};
+            }
+        }
+    }
+    // 배너1
+    .bnrWrap{
+        .banner.bnr01{
+            flex-wrap: wrap;
+            .icon{
+                width: calc(100% / 2);
+                &:nth-child(2)~.icon{
+                    margin-top: $lh40;
+                }
+            }
+        }
+    }
+    // 배너2
+    .bnrWrap{
+        .banner.bnr02{
+            .bnrTeam{
+                .bnrGroup{
+                    .image{
+                        height: #{'min(7rem,280px)'};
+                    }
+                    .texts{
+                        h2{
+                            font-size: #{'min(2.8em,28px)'};
+                            line-height: $lh40;
+                            &:nth-child(2){
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 컨텐츠 공통
+    .cntWrap{
+        .content{
+            @include gd('');
+            header{
+                h2{
+                    font-size: #{'min(2.4em,24px)'};
+                    line-height: $lh40;
+                }
+            }
+        }
+    }
+    .cntWrap{
+        .content.cnt01{
+            section{
+                .txtbtn{
+                    width: calc(100% / 3);
+                    font-size: #{'min(1.4em,14px)'};
+                }
+                .btn{
+                    top: #{'min(4rem,160px)'};
+                    right: #{'min(0.5rem,20px)'};
+                    color: #000;
+                    text-shadow: -8px 0px 0px #888;
+                    &:hover{
+                        font-size: #{'min(5.2em,52px)'};
+                    }
+                }
+                .artView{
+                    .artGroup{
+                        margin-left: -100%;
+                        width: 1000%;
+                        .article{
+                            width: 100%;
+                            .image{
+                                height: #{'min(7rem,280px)'};
+                                
+                            }
+                        }
+                        &:nth-child(1) .image{
+                            filter: grayscale(0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .bnrWrap{
+        &:nth-child(6){
+            height: #{'min(7rem,280px)'};
+            &::after{
+                height: #{'min(7rem,280px)'};
+            }
+        }
+        .banner.bnr03{
+            padding-top: #{'min(3rem,120px)'};
+            h2{
+                font-size: #{'min(2.4em,24px)'};
+                line-height: $lh40;
+            }
+        }
+    }
+    .cntWrap{
+        .content.cnt02{
+            section{
+                display: block;
+                flex-wrap: nowrap;
+                article{
+                    width: 100%;
+                    .image{
+                        height: #{'min(7rem,280px)'};
+                        &::after{
+                            height: #{'min(7rem,280px)'};
+                        }
+                    }
+                    .texts{
+                        top: #{'min(3rem,120px)'};
+                    }
+                }
+            }
+        }
+    }
+    .ftrWrap{
+        footer{
+            @include gd('');
+            .ftrLeft{
+                width: calc(100% / 4 * 3);
+                .logo{
+                    width: calc(100% / 2.8 * 1.5);
+                }
+                .info{
+                    margin-top: $lh40;
+                    p{
+                        height: $lh80;
+                    }
+                    ul{
+                        width: calc(100% / 3 * 2.5);
+                        li{
+                            font-size: #{'min(1.2em,12px)'};
+                        }
+                    }
+                }
+            }
+            .ftrRight{
+                width: calc(100% / 4 * 1.2);
+                text-align: right;
             }
         }
     }
