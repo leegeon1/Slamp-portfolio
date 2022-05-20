@@ -85,5 +85,6 @@ $(function(){
                 ag.css({marginLeft : '-100%'});
             });
         });
+        // mo 스크립트 입력
     }      
 });
