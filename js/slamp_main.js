@@ -13,24 +13,13 @@ $(function(){
     
 
 
-    // 풀페이지헤더
-    $(window).scroll(function(){
-        var now = $(this).scrollTop();
-        console.log(now);
-        if(now>=1){
-            $('.hdrWrap').addClass('fix');
-        }else{
-            $('.hdrWrap').removeClass('fix');
-        };
-    });
-
     // 컨텐츠3
     agimg.click(agimgs);
 
     if(wd > 1024){
         // 슬라이드 pc버젼
-
         // 컨텐츠4
+        
         // 왼쪽버튼
         btn.first().click(leftbtn);
         // 오른쪽버튼

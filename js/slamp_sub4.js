@@ -7,8 +7,6 @@ $(function(){
     var btn2 = $('.content.cnt02 header .btn');
     var btn3 = $('.content.cnt03 header .btn');
     var onOff = false;
-    var onOff1 = false;
-    var onOff2 = false;
     var wd = $(window).width();
 
 
@@ -24,9 +22,20 @@ $(function(){
         btn2.click(cnt22);
         btn3.click(cnt33);
     } else {
-      // mo 스크립트 입력
+        btn1.click(cnt111);
+        btn2.click(cnt222);
+        btn3.click(cnt333);
+        // mo 스크립트 입력
     }
-
+    
+    ag1.swipeleft(function(){
+        ag1.animate({
+            marginLeft : '-100%'
+        },500,function(){
+            ag1.find('article:first').appendTo(ag1);
+            ag1.css({marginLeft : '0%'});
+        });
+    });
 
 
     // pc 슬라이드
@@ -65,7 +74,7 @@ $(function(){
         if(!onOff2){
             onOff2 = true;        
             ag3.animate({
-                marginLeft : '-40%'
+                marginLeft : '-30%'
             },500,function(){
                 ag3.find('article:first').appendTo(ag3);
                 ag3.css({marginLeft : '0%'});
@@ -108,7 +117,7 @@ $(function(){
         if(!onOff2){
             onOff2 = true;        
             ag3.animate({
-                marginLeft : '-30%'
+                marginLeft : '-40%'
             },500,function(){
                 ag3.find('article:first').appendTo(ag3);
                 ag3.css({marginLeft : '0%'});
@@ -116,5 +125,46 @@ $(function(){
             });
         };
     };
-
+    // 모바일 슬라이드
+    function cnt111(){
+        if(!onOff){
+            onOff = true;
+            ag1.animate({
+                marginLeft : '-100%'
+            },500,function(){
+                ag1.find('article:first').appendTo(ag1);
+                ag1.css({marginLeft : '0%'});
+                onOff = false;
+            });
+        };
+    };
+    
+    // 컨텐츠2
+    function cnt222(){
+        if(!onOff){
+            onOff = true;
+            ag2.animate({
+                marginLeft : '-100%'
+            },500,function(){
+                ag2.find('article:first').appendTo(ag2);
+                ag2.css({marginLeft : '0%'});
+                onOff = false;
+            });
+            
+        };
+    };
+    
+    // 컨텐츠3
+    function cnt333(){
+        if(!onOff){
+            onOff = true;        
+            ag3.animate({
+                marginLeft : '-100%'
+            },500,function(){
+                ag3.find('article:first').appendTo(ag3);
+                ag3.css({marginLeft : '0%'});
+                onOff = false;
+            });
+        };
+    };
 });

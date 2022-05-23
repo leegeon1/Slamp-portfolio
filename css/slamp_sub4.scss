@@ -519,3 +519,123 @@ html{
         }
     }
 }
+@media (max-width:420px) and (min-width:0px){
+    html{
+        font-size: 10.5vw;
+        overflow-x: hidden;
+        body{
+            font-size: 2.625vw;
+        }
+    }
+    .hdrWrap{
+        header{
+            @include gd('');
+            h1{
+                font-size: #{'min(2.4em,24px)'};
+                line-height: #{'min(1rem,40px)'};
+            }
+            .menu{
+                width: calc(100% / 4 * 0.7);
+                font-size: #{'min(2.4em,24px)'};
+                i{
+                    line-height: #{'min(1rem,40px)'};
+                }
+            }
+            .menuMob{
+                .hdrMob{
+                    .mobLeft{
+                        width: calc(100% / 4);
+                        .image{
+                            height: #{'min(1.5rem,60px)'};
+                        }
+                    }
+                    .mobRight{
+                        width: calc(100% / 4);
+                        .icon{
+                            i{
+                                line-height: #{'min(1.5rem,60px)'};
+                            }
+                        }
+                    }
+                }
+                .hdrActive{
+                    .nav{
+                        padding-left: $lh20;
+                        .gnb{
+                            font-size: #{'min(2.4em,24px)'};
+                            li{
+                                margin-top: #{'min(0.75rem,30px)'};
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mainWrap{
+        margin-top: #{'max(-1rem,-40px)'};
+        main{
+            padding: $lh80 0px;
+            @include gd('');
+            h2{
+                font-size: #{'min(2.4em,24px)'};
+            }
+        }
+    }
+    .cntWrap{
+        .content{
+            @include gd('');
+            header{
+                width: calc(100% / 4 * 1.5);
+                h3{
+                    text-align: center;
+                    font-size: #{'min(1.8em,18px)'};
+                }
+                .btn{
+                    margin-top: #{'min(2rem,80px)'};
+                    margin-left: $lh40;
+                }
+            }
+            section{
+                width: calc(100% / 4 * 2.5);
+                .artView{
+                    .artGroup{
+                        width: 500%;
+                        article{
+                            .image{
+                                height: #{'min(7rem,280px)'};
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .ftrWrap{
+        footer{
+            @include gd('');
+            .ftrLeft{
+                width: calc(100% / 4 * 3);
+                .logo{
+                    width: calc(100% / 2.8 * 1.5);
+                }
+                .info{
+                    margin-top: $lh40;
+                    p{
+                        height: $lh80;
+                    }
+                    ul{
+                        width: calc(100% / 3 * 2.5);
+                        li{
+                            font-size: #{'min(1.2em,12px)'};
+                        }
+                    }
+                }
+            }
+            .ftrRight{
+                width: calc(100% / 4 * 1.4);
+                text-align: right;
+            }
+        }
+    }
+}

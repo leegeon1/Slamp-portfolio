@@ -1163,8 +1163,8 @@ html{
                             height: #{'min(8rem,320px)'};
                         }
                         .image{
+                            transition: none;
                             height: #{'min(8rem,320px)'};
-                            background-size: contain;
                         }
                     }
                 }
@@ -1191,7 +1191,8 @@ html{
                         height: $lh80;
                     }
                     ul{
-                        width: calc(100% / 3 * 2.1);
+                        width: calc(100% / 3 * 2.5);
+                        margin-top: lh20;
                         li{
                             font-size: #{'min(1.2em,12px)'};
                         }
@@ -1199,7 +1200,7 @@ html{
                 }
             }
             .ftrRight{
-                width: calc(100% / 4);
+                width: calc(100% / 4 * 1.4);
                 text-align: right;
             }
         }
