@@ -1154,6 +1154,8 @@ html{
                 .artGroup{
                     margin-top: #{'min(4rem,160px)'};
                     width: 500%;
+                    touch-action: pan-y;
+                    -ms-touch-action: pan-y;
                     article{
                         width: 100%;
                         &:nth-child(2) .image{

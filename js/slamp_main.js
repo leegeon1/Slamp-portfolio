@@ -34,20 +34,28 @@ $(function(){
         btn.first().click(mobleftbtn);
         btn.last().click(mobrightbtn);
         ag.swipeleft(function(){
-            ag.animate({
-                marginLeft : '-100%'
-            },500,function(){
-                ag.find('article:first').appendTo(ag);
-                ag.css({marginLeft : '0%'});
-            });
+            if(!onOff){
+                onOff = true;
+                ag.animate({
+                    marginLeft : '-100%'
+                },500,function(){
+                    ag.find('article:first').appendTo(ag);
+                    ag.css({marginLeft : '0%'});
+                    onOff = false;
+                });
+            }
         });
         ag.swiperight(function(){
-            ag.animate({
-                marginLeft : '0%'
-            },500,function(){
-                ag.find('article:last').prependTo(ag);
-                ag.css({marginLeft : '-100%'});
-            });
+            if(!onOff){
+                onOff = true;
+                ag.animate({
+                    marginLeft : '0%'
+                },500,function(){
+                    ag.find('article:last').prependTo(ag);
+                    ag.css({marginLeft : '-100%'});
+                    onOff = false;
+                });
+            }
         });
     };
 
