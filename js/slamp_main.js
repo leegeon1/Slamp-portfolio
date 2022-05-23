@@ -44,9 +44,22 @@ $(function(){
         // 모바일 버튼
         btn.first().click(mobleftbtn);
         btn.last().click(mobrightbtn);
-        // 모바일 스와이프
-        ag.swipeleft(mobrightbtn);
-        ag.swiperight(mobleftbtn);
+        ag.swipeleft(function(){
+            ag.animate({
+                marginLeft : '-100%'
+            },500,function(){
+                ag.find('article:first').appendTo(ag);
+                ag.css({marginLeft : '0%'});
+            });
+        });
+        ag.swiperight(function(){
+            ag.animate({
+                marginLeft : '0%'
+            },500,function(){
+                ag.find('article:last').prependTo(ag);
+                ag.css({marginLeft : '-100%'});
+            });
+        });
     };
 
     
