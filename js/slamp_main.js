@@ -41,18 +41,18 @@ $(function(){
         // 오른쪽버튼
         btn.last().click(rightbtn);
     }else{
-        // 모바일
+        // 모바일 버튼
         btn.first().click(mobleftbtn);
+        btn.last().click(mobrightbtn);
+        // 모바일 스와이프
         ag.swipeleft(mobrightbtn);
         ag.swiperight(mobleftbtn);
-        btn.last().click(mobrightbtn);
     };
 
     
     // 컨텐츠3번
     function agimgs(){
         var ind = $(this).index();
-        console.log(ind);
         artV.css('margin-left',ind * -100+'%');
     };
     

@@ -1191,7 +1191,7 @@ html{
                         height: $lh80;
                     }
                     ul{
-                          width: calc(100% / 3 * 2.5);
+                        width: calc(100% / 3 * 2.1);
                         li{
                             font-size: #{'min(1.2em,12px)'};
                         }
@@ -1199,7 +1199,7 @@ html{
                 }
             }
             .ftrRight{
-                width: calc(100% / 4 * 1.2);
+                width: calc(100% / 4);
                 text-align: right;
             }
         }
