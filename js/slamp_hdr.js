@@ -1,8 +1,9 @@
 $(function(){
     var mn = $('.hdrWrap header .menu i');
-    var mobbtn = $('.hdrWrap header .menuMob .hdrMob .mobRight .icon i')
+    var mobbtn = $('.hdrWrap header .menuMob .hdrMob .mobRight .icon i');
     var wd = $(window).width();
     var flag = true;
+
 
     mn.last().click(function(){            
         if (flag == true) {

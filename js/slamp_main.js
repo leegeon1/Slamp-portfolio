@@ -8,11 +8,6 @@ $(function(){
 
 
 
-
-
-    
-
-
     // 컨텐츠3
     agimg.click(agimgs);
 
