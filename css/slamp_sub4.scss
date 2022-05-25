@@ -217,7 +217,7 @@ html{
                     .image{
                         @for $img from 1 through 5{
                             &.i#{$img}{
-                                background-image: url('/images/sub4/cnt1-#{$img}.jpg');
+                                background-image: url('../images/sub4/cnt1-#{$img}.jpg');
                             }
                         }
                     }
@@ -237,7 +237,7 @@ html{
                     .image{
                         @for $img from 1 through 5{
                             &.i#{$img}{
-                                background-image: url('/images/sub4/cnt2-#{$img}.jpg');
+                                background-image: url('../images/sub4/cnt2-#{$img}.jpg');
                             }
                         }
                     }
@@ -254,7 +254,7 @@ html{
                     .image{
                         @for $img from 1 through 5{
                             &.i#{$img}{
-                                background-image: url('/images/sub4/cnt3-#{$img}.jpg');
+                                background-image: url('../images/sub4/cnt3-#{$img}.jpg');
                             }
                         }
                     }
