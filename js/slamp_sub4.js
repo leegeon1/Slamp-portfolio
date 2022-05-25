@@ -27,15 +27,6 @@ $(function(){
         btn3.click(cnt333);
         // mo 스크립트 입력
     }
-    
-    ag1.swipeleft(function(){
-        ag1.animate({
-            marginLeft : '-100%'
-        },500,function(){
-            ag1.find('article:first').appendTo(ag1);
-            ag1.css({marginLeft : '0%'});
-        });
-    });
 
 
     // pc 슬라이드
