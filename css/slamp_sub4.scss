@@ -167,8 +167,15 @@ html{
                 margin-top: #{'min(4rem,160px)'};
                 font-size: #{'min(6em,60px)'};
                 line-height: $lh80;
-                opacity: 50%;
                 margin-left: #{'min(1.5rem,60px)'};
+                i{
+                    opacity: 50%;
+                    transition: all 0.3s;
+                    &:hover{
+                        font-size: #{'min(6.4em,64px)'};
+                        opacity: 100%;
+                    }
+                }
             }
         }
         section{

@@ -47,14 +47,14 @@ $(function(){
     
     // 컨텐츠2
     function cnt2(){
-        if(!onOff1){
-            onOff1 = true;
+        if(!onOff){
+            onOff = true;
             ag2.animate({
                 marginLeft : '-30%'
             },500,function(){
                 ag2.find('article:first').appendTo(ag2);
                 ag2.css({marginLeft : '0%'});
-                onOff1 = false;
+                onOff = false;
             });
             
         };
@@ -62,14 +62,14 @@ $(function(){
     
     // 컨텐츠3
     function cnt3(){
-        if(!onOff2){
-            onOff2 = true;        
+        if(!onOff){
+            onOff = true;        
             ag3.animate({
                 marginLeft : '-30%'
             },500,function(){
                 ag3.find('article:first').appendTo(ag3);
                 ag3.css({marginLeft : '0%'});
-                onOff2 = false;
+                onOff = false;
             });
         };
     };
@@ -90,14 +90,14 @@ $(function(){
     
     // 컨텐츠2
     function cnt22(){
-        if(!onOff1){
-            onOff1 = true;
+        if(!onOff){
+            onOff = true;
             ag2.animate({
                 marginLeft : '-40%'
             },500,function(){
                 ag2.find('article:first').appendTo(ag2);
                 ag2.css({marginLeft : '0%'});
-                onOff1 = false;
+                onOff = false;
             });
             
         };
@@ -105,14 +105,14 @@ $(function(){
     
     // 컨텐츠3
     function cnt33(){
-        if(!onOff2){
-            onOff2 = true;        
+        if(!onOff){
+            onOff = true;        
             ag3.animate({
                 marginLeft : '-40%'
             },500,function(){
                 ag3.find('article:first').appendTo(ag3);
                 ag3.css({marginLeft : '0%'});
-                onOff2 = false;
+                onOff = false;
             });
         };
     };
