@@ -160,6 +160,7 @@ html{
         }
     }
 }
+// 컨텐츠1
 .cntWrap{
     margin-top:  #{'min(3rem,120px)'};
     .content{
@@ -237,6 +238,7 @@ html{
         }       
     }
 }
+// 배너
 .bnrWrap{
     background: #fff;
     color: #000;
@@ -248,14 +250,19 @@ html{
             width: 100%;
             text-align: center;
             p{
+                width: calc(100% / 12 * 8);
+                margin: 0 auto;
                 transition: height 1s;
                 font-size: #{'min(1.6em,16px)'};
                 line-height: $lh20;
-                height: #{'min(1.5rem,60px)'};
+                height: #{'min(1rem,40px)'};
                 font-weight: 700;
                 text-transform: capitalize;
                 overflow: hidden;
                 font-family: 'lola';
+                &.on{
+                    height:#{'min(2rem,80px)'};
+                }
             }
             h4{
                 text-align: center;
@@ -301,6 +308,7 @@ html{
         }
     }
 }
+// 푸터
 .ftrWrap{
     margin-top: #{'min(4rem,160px)'};
     padding: $lh80 0px $lh80;
